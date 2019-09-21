@@ -1,7 +1,10 @@
 package modelo;
 
-public abstract class AbstractEntity {
+public class AbstractEntity {
 
-    public abstract Long getId();
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
