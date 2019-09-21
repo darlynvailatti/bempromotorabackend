@@ -1,6 +1,6 @@
 package domain.regravalidacao;
 
-import domain.AbstractEntity;
+import architecture.AbstractEntity;
 
 public class RegraValidacao extends AbstractEntity {
 

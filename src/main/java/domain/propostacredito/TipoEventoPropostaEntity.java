@@ -1,8 +1,9 @@
 package domain.propostacredito;
 
-import domain.AbstractEntity;
-
 import javax.persistence.*;
+
+import architecture.AbstractEntity;
+
 import java.util.Set;
 
 @Entity

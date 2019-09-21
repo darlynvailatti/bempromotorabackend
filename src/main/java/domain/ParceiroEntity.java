@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Parceiro")
-public class ParceiroEntity extends domain.AbstractEntity
+public class ParceiroEntity extends architecture.AbstractEntity
 {
 	
 	@Id

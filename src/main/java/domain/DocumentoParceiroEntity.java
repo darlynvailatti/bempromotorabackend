@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "DocumentoParceiroEntity")
-public class DocumentoParceiroEntity extends domain.AbstractEntity {
+public class DocumentoParceiroEntity extends architecture.AbstractEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="idDocumentoParceiro_gen")

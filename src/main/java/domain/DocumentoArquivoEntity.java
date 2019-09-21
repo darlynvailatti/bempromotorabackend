@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "DocumentoArquivo")
-public class DocumentoArquivoEntity extends domain.AbstractEntity
+public class DocumentoArquivoEntity extends architecture.AbstractEntity
 {
 	
 	@Id

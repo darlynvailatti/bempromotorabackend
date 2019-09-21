@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "TipoArquivo")
-public class TipoArquivoEntity extends domain.AbstractEntity
+public class TipoArquivoEntity extends architecture.AbstractEntity
 {
 	
 	@Id

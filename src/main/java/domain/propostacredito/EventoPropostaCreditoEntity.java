@@ -1,10 +1,11 @@
 package domain.propostacredito;
 
 import common.Data;
-import domain.AbstractEntity;
 import domain.PropostaEntity;
 
 import javax.persistence.*;
+
+import architecture.AbstractEntity;
 
 @Entity
 @Table(name = "EventoPropostaCreditoEntity")

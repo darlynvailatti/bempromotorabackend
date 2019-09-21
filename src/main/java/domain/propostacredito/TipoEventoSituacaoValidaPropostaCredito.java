@@ -1,6 +1,6 @@
 package domain.propostacredito;
 
-import domain.AbstractEntity;
+import architecture.AbstractEntity;
 
 public class TipoEventoSituacaoValidaPropostaCredito extends AbstractEntity {
 

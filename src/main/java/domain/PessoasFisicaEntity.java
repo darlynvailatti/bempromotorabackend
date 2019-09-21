@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "PessoasFisica")
-public class PessoasFisicaEntity extends domain.AbstractEntity
+public class PessoasFisicaEntity extends architecture.AbstractEntity
 {
 	
 	@Id

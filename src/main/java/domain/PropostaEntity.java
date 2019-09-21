@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Proposta")
-public class PropostaEntity extends domain.AbstractEntity {
+public class PropostaEntity extends architecture.AbstractEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="idProposta_gen")

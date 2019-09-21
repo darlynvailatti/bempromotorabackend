@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "VersaoContrato")
-public class UsuarioParceiro extends domain.AbstractEntity {
+public class UsuarioParceiro extends architecture.AbstractEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="idUsuarioParceiro_gen")

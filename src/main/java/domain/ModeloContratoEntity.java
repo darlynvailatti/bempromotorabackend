@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ModeloContrato")
-public class ModeloContratoEntity extends domain.AbstractEntity
+public class ModeloContratoEntity extends architecture.AbstractEntity
 {
 	
 	@Id

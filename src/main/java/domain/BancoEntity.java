@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "BancoEntity")
-public class BancoEntity extends domain.AbstractEntity {
+public class BancoEntity extends architecture.AbstractEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="idBanco_gen")

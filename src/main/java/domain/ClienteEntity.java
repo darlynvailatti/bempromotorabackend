@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Cliente")
-public class ClienteEntity extends domain.AbstractEntity
+public class ClienteEntity extends architecture.AbstractEntity
 {
 	
 	@Id

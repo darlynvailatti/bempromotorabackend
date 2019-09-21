@@ -1,12 +1,13 @@
 package domain.propostacredito;
 
 import common.Data;
-import domain.AbstractEntity;
 import domain.PropostaEntity;
 import domain.ResultanteAnalisePropostaEnum;
 import domain.UsuarioEntity;
 
 import javax.persistence.*;
+
+import architecture.AbstractEntity;
 
 @Entity
 @Table(name = "AnalisePropostaCreditoEntity")

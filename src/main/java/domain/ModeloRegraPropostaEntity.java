@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ModeloRegraProposta")
-public class ModeloRegraPropostaEntity extends domain.AbstractEntity
+public class ModeloRegraPropostaEntity extends architecture.AbstractEntity
 {
 	
 	@Id

@@ -1,8 +1,8 @@
 package domain.regravalidacao;
 
-import domain.AbstractEntity;
-
 import javax.persistence.*;
+
+import architecture.AbstractEntity;
 
 @Entity
 @Table(name = "AtributoPropostaEntity")
