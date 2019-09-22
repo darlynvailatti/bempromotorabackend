@@ -1,46 +1,38 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.AliasEntity;
-import domain.ConteudoEntity;
-import java.util.List;
+import java.util.Set;
 
- 
 
 @Entity
-@Table(name = "ValoresDeOpcao")
-public class ValoresDeOpcaoEntity extends architecture.AbstractEntity
+@Table(name = "ValoreOpcao")
+public class ValorOpcaoEntity extends architecture.AbstractEntity
 {
 	
 	@Id
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn(name="idConteudo", referencedColumnName="idConteudo")
-	
 	private ConteudoEntity conteudo;
+
 	@Column(name = "ValorDeOpcao")
 	private String valorDeOpcao;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="conteudo", cascade=CascadeType.ALL)
-	private List<AliasEntity> conteudoAlias;
+	private Set<AliasEntity> aliases;
 	
-    	
-	
-
-	// gets e sets
 	@Override
 	public Long getId(){
 		return getConteudo().getId();
 	};
 	
-	
 	public ConteudoEntity getConteudo(){
 		return this.conteudo;
 	};
 
-    	public void setConteudo(ConteudoEntity conteudo){
+	public void setConteudo(ConteudoEntity conteudo){
         	this.conteudo = conteudo;
 	};
 	
@@ -52,21 +44,11 @@ public class ValoresDeOpcaoEntity extends architecture.AbstractEntity
         	this.valorDeOpcao = valorDeOpcao;
 	};
 	
-	
-	
-	//novos
-	
-  	public List<AliasEntity> getConteudoAlias(){
-		return this.conteudoAlias;
+  	public Set<AliasEntity> getAliases(){
+		return this.aliases;
 	};
-	public void setConteudoAlias(List<AliasEntity> conteudoAlias ){
-		this.conteudoAlias=conteudoAlias;
+	public void setAliases(Set<AliasEntity> aliases){
+		this.aliases = aliases;
 	}
-	
-    	
-	
-	
-	
-	
-	
+
 }

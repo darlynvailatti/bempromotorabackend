@@ -1,11 +1,9 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
-import domain.ValoresDeOpcaoEntity;
-import domain.OpcaoDeCampoEntity;
- 
+
 
 @Entity
 @Table(name = "Alias")
@@ -20,21 +18,20 @@ public class AliasEntity extends architecture.AbstractEntity
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idConteudo")
-	private ValoresDeOpcaoEntity conteudo;
+	private ValorOpcaoEntity conteudo;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idOpcao")
-	private OpcaoDeCampoEntity opcao;
+	private OpcaoCampoEntity opcao;
+
 	@Column(name = "NomeResumido")
 	private String nomeResumido;
-	
-	
 
-	// gets e sets
 	public Long getIdAlias(){
 		return this.idAlias;
 	};
 
-    	public void setIdAlias(Long idAlias){
+	public void setIdAlias(Long idAlias){
         	this.idAlias = idAlias;
 	};
 	
@@ -43,19 +40,19 @@ public class AliasEntity extends architecture.AbstractEntity
 		return getIdAlias();
 	};
 	
-	public ValoresDeOpcaoEntity getConteudo(){
+	public ValorOpcaoEntity getConteudo(){
 		return this.conteudo;
 	};
 
-    	public void setConteudo(ValoresDeOpcaoEntity conteudo){
+	public void setConteudo(ValorOpcaoEntity conteudo){
         	this.conteudo = conteudo;
 	};
 	
-	public OpcaoDeCampoEntity getOpcao(){
+	public OpcaoCampoEntity getOpcao(){
 		return this.opcao;
 	};
 
-    	public void setOpcao(OpcaoDeCampoEntity opcao){
+	public void setOpcao(OpcaoCampoEntity opcao){
         	this.opcao = opcao;
 	};
 	
@@ -66,13 +63,5 @@ public class AliasEntity extends architecture.AbstractEntity
 	public void setNomeResumido(String nomeResumido){
         	this.nomeResumido = nomeResumido;
 	};
-	
-	
-	
-	//novos
-	
-	
-	
-	
-	
+
 }

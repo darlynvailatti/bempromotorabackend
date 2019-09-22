@@ -1,11 +1,9 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.EntidadeEntity;
-import domain.InformacaoEntity;
 import java.util.List;
 
  
@@ -24,18 +22,15 @@ public class RegistroEntity extends architecture.AbstractEntity
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="IdEntidade")
 	private EntidadeEntity entidade;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="registroDeInformacao", cascade=CascadeType.ALL)
 	private List<InformacaoEntity> registroDeInformacaoInformacao;
-	
-    	
-	
 
-	// gets e sets
 	public Long getRegistroDeInformacao(){
 		return this.registroDeInformacao;
 	};
 
-    	public void setRegistroDeInformacao(Long registroDeInformacao){
+	public void setRegistroDeInformacao(Long registroDeInformacao){
         	this.registroDeInformacao = registroDeInformacao;
 	};
 	
@@ -48,13 +43,9 @@ public class RegistroEntity extends architecture.AbstractEntity
 		return this.entidade;
 	};
 
-    	public void setEntidade(EntidadeEntity entidade){
+	public void setEntidade(EntidadeEntity entidade){
         	this.entidade = entidade;
 	};
-	
-	
-	
-	//novos
 	
   	public List<InformacaoEntity> getRegistroDeInformacaoInformacao(){
 		return this.registroDeInformacaoInformacao;
@@ -62,11 +53,5 @@ public class RegistroEntity extends architecture.AbstractEntity
 	public void setRegistroDeInformacaoInformacao(List<InformacaoEntity> registroDeInformacaoInformacao ){
 		this.registroDeInformacaoInformacao=registroDeInformacaoInformacao;
 	}
-	
-    	
-	
-	
-	
-	
-	
+
 }

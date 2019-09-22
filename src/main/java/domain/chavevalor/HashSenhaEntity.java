@@ -1,16 +1,13 @@
 
-package domain;
+package domain.chavevalor;
 
-import java.math.BigDecimal;
+
 import javax.persistence.*;
 
-import domain.ConteudoEntity;
-import java.util.List;
- 
 
 @Entity
-@Table(name = "ValorFloat")
-public class ValorFloatEntity extends architecture.AbstractEntity
+@Table(name = "HashSenha")
+public class HashSenhaEntity extends architecture.AbstractEntity
 {
 	
 	@Id
@@ -18,8 +15,8 @@ public class ValorFloatEntity extends architecture.AbstractEntity
 	@PrimaryKeyJoinColumn(name="idConteudo", referencedColumnName="idConteudo")
 	
 	private ConteudoEntity conteudo;
-	@Column(name = "ValorFloat")
-	private BigDecimal valorFloat;
+	@Column(name = "HashSenhas")
+	private String hashSenhas;
 	
 	
 
@@ -38,12 +35,12 @@ public class ValorFloatEntity extends architecture.AbstractEntity
         	this.conteudo = conteudo;
 	};
 	
-	public BigDecimal getValorFloat(){
-		return this.valorFloat;
+	public String getHashSenhas(){
+		return this.hashSenhas;
 	};
 
-	public void setValorFloat(BigDecimal valorFloat){
-        	this.valorFloat = valorFloat;
+	public void setHashSenhas(String hashSenhas){
+        	this.hashSenhas = hashSenhas;
 	};
 	
 	

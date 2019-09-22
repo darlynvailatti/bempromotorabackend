@@ -1,12 +1,10 @@
 
-package domain;
+package domain.chavevalor;
 
 import java.time.LocalDate;
 
 import javax.persistence.*;
 
-import domain.ConteudoEntity;
- 
 
 @Entity
 @Table(name = "Data")

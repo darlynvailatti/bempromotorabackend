@@ -1,15 +1,13 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.ConteudoEntity;
- 
 
 @Entity
-@Table(name = "HashSenha")
-public class HashSenhaEntity extends architecture.AbstractEntity
+@Table(name = "ValoresInteiro")
+public class ValoresInteiroEntity extends architecture.AbstractEntity
 {
 	
 	@Id
@@ -17,8 +15,8 @@ public class HashSenhaEntity extends architecture.AbstractEntity
 	@PrimaryKeyJoinColumn(name="idConteudo", referencedColumnName="idConteudo")
 	
 	private ConteudoEntity conteudo;
-	@Column(name = "HashSenhas")
-	private String hashSenhas;
+	@Column(name = "ValorInteiro")
+	private Integer valorInteiro;
 	
 	
 
@@ -37,12 +35,12 @@ public class HashSenhaEntity extends architecture.AbstractEntity
         	this.conteudo = conteudo;
 	};
 	
-	public String getHashSenhas(){
-		return this.hashSenhas;
+	public Integer getValorInteiro(){
+		return this.valorInteiro;
 	};
 
-	public void setHashSenhas(String hashSenhas){
-        	this.hashSenhas = hashSenhas;
+	public void setValorInteiro(Integer valorInteiro){
+        	this.valorInteiro = valorInteiro;
 	};
 	
 	

@@ -1,24 +1,11 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.BinarioEntity;
-import domain.CampoDeEntidadeEntity;
-import domain.DataEntity;
-import domain.HashSenhaEntity;
-import domain.InformacaoEntity;
-import domain.PermissaoEntity;
-import domain.TextoEntity;
-import domain.ValorFloatEntity;
-import domain.ValoresDeOpcaoEntity;
-import domain.ValoresInteiroEntity;
 import java.util.List;
 
-import domain.OpcaoDeCampoEntity;
-
- 
 
 @Entity
 @Table(name = "Conteudo")
@@ -43,7 +30,7 @@ public class ConteudoEntity extends architecture.AbstractEntity
 	
     	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="conteudo", cascade=CascadeType.ALL)
-	private List<OpcaoDeCampoEntity> conteudoOpcaoDeCampo;
+	private List<OpcaoCampoEntity> conteudoOpcaoDeCampo;
 	
     	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="conteudoDefault", cascade=CascadeType.ALL)
@@ -51,15 +38,15 @@ public class ConteudoEntity extends architecture.AbstractEntity
 	
     	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="nteudo", cascade=CascadeType.ALL)
-	private List<InformacaoEntity> nteudoInformacao;
-	
+	private List<InformacaoEntity> informacoe;
+
     	
 	@OneToOne(fetch = FetchType.LAZY,mappedBy="conteudo", cascade=CascadeType.ALL)
 	private BinarioEntity conteudoBinario;
 	
     	
 	@OneToOne(fetch = FetchType.LAZY,mappedBy="conteudo", cascade=CascadeType.ALL)
-	private ValoresDeOpcaoEntity conteudoValoresDeOpcao;
+	private ValorOpcaoEntity conteudoValoresDeOpcao;
 	
     	
 	@OneToOne(fetch = FetchType.LAZY,mappedBy="conteudo", cascade=CascadeType.ALL)
@@ -125,10 +112,10 @@ public class ConteudoEntity extends architecture.AbstractEntity
 	
     	
 	
-  	public List<OpcaoDeCampoEntity> getConteudoOpcaoDeCampo(){
+  	public List<OpcaoCampoEntity> getConteudoOpcaoDeCampo(){
 		return this.conteudoOpcaoDeCampo;
 	};
-	public void setConteudoOpcaoDeCampo(List<OpcaoDeCampoEntity> conteudoOpcaoDeCampo ){
+	public void setConteudoOpcaoDeCampo(List<OpcaoCampoEntity> conteudoOpcaoDeCampo ){
 		this.conteudoOpcaoDeCampo=conteudoOpcaoDeCampo;
 	}
 	
@@ -143,11 +130,11 @@ public class ConteudoEntity extends architecture.AbstractEntity
 	
     	
 	
-  	public List<InformacaoEntity> getNteudoInformacao(){
-		return this.nteudoInformacao;
+  	public List<InformacaoEntity> getInformacoe(){
+		return this.informacoe;
 	};
-	public void setNteudoInformacao(List<InformacaoEntity> nteudoInformacao ){
-		this.nteudoInformacao=nteudoInformacao;
+	public void setInformacoe(List<InformacaoEntity> informacoe){
+		this.informacoe = informacoe;
 	}
 	
     	
@@ -162,10 +149,10 @@ public class ConteudoEntity extends architecture.AbstractEntity
 	
     	
 	
-  	public ValoresDeOpcaoEntity getConteudoValoresDeOpcao(){
+  	public ValorOpcaoEntity getConteudoValoresDeOpcao(){
 		return this.conteudoValoresDeOpcao;
 	};
-	public void setConteudoValoresDeOpcao(ValoresDeOpcaoEntity conteudoValoresDeOpcao ){
+	public void setConteudoValoresDeOpcao(ValorOpcaoEntity conteudoValoresDeOpcao ){
 		this.conteudoValoresDeOpcao=conteudoValoresDeOpcao;
 	};
 

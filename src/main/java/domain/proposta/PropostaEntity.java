@@ -2,6 +2,7 @@
 package domain.proposta;
 
 import domain.UsuarioEntity;
+import domain.cliente.ConvenioClienteEntity;
 import domain.cliente.ConvenioEntity;
 import domain.proposta.contrato.ContratoEntity;
 import domain.proposta.regra.ModeloRegraPropostaEntity;
@@ -32,8 +33,8 @@ public class PropostaEntity extends architecture.AbstractEntity {
 	private SituacaoPropostaEntity situacao;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idConvenio")
-	private ConvenioEntity convenio;
+	@JoinColumn(name="idConvenioCliente")
+	private ConvenioClienteEntity convenioCliente;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idContrato")
@@ -49,16 +50,15 @@ public class PropostaEntity extends architecture.AbstractEntity {
 	@JoinColumn(name="idUsuario")
 	private UsuarioEntity usuario;
 
-	@Column(name = "ProtocolodoConvenio")
-	private String protocolodoConvenio;
-	
+	@Column(name = "ProtocoloAceiteConvenio")
+	private String protocoloAceiteConvenio;
+
 	@Column(name = "Observacao")
 	private String observacao;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="proposta", cascade=CascadeType.ALL)
 	private Set<EvolucaoPropostaEntity> evolucoes;
-	
-    	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="proposta", cascade=CascadeType.ALL)
 	private Set<PropostaArquivoEntity> arquivos;
 
@@ -89,14 +89,6 @@ public class PropostaEntity extends architecture.AbstractEntity {
 
 	public void setSituacao(SituacaoPropostaEntity situacao){
         	this.situacao = situacao;
-	};
-	
-	public ConvenioEntity getConvenio(){
-		return this.convenio;
-	};
-
-	public void setConvenio(ConvenioEntity convenio){
-        	this.convenio = convenio;
 	};
 	
 	public ContratoEntity getContrato(){
@@ -130,15 +122,15 @@ public class PropostaEntity extends architecture.AbstractEntity {
 	public void setUsuario(UsuarioEntity usuario){
         	this.usuario = usuario;
 	};
-	
-	public String getProtocolodoConvenio(){
-		return this.protocolodoConvenio;
+
+	public String getProtocoloAceiteConvenio(){
+		return this.protocoloAceiteConvenio;
 	};
 
-	public void setProtocolodoConvenio(String protocolodoConvenio){
-        	this.protocolodoConvenio = protocolodoConvenio;
+	public void setProtocoloAceiteConvenio(String protocoloAceiteConvenio){
+        	this.protocoloAceiteConvenio = protocoloAceiteConvenio;
 	};
-	
+
 	public String getObservacao(){
 		return this.observacao;
 	};
@@ -163,4 +155,11 @@ public class PropostaEntity extends architecture.AbstractEntity {
 		this.arquivos = arquivos;
 	}
 
+	public ConvenioClienteEntity getConvenioCliente() {
+		return convenioCliente;
+	}
+
+	public void setConvenioCliente(ConvenioClienteEntity convenioCliente) {
+		this.convenioCliente = convenioCliente;
+	}
 }

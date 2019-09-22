@@ -1,13 +1,14 @@
-package domain;
+package domain.parceiro;
 
 import common.Periodo;
+import domain.UsuarioEntity;
 import domain.parceiro.ParceiroEntity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "VersaoContrato")
-public class UsuarioParceiro extends architecture.AbstractEntity {
+public class UsuarioParceiroEntity extends architecture.AbstractEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="idUsuarioParceiro_gen")

@@ -1,12 +1,9 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.ConteudoEntity;
-import java.util.List;
- 
 
 @Entity
 @Table(name = "Texto")

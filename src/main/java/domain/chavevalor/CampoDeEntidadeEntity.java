@@ -1,22 +1,13 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.AliasEntity;
-import domain.CampoDeEntidadeEntity;
-import domain.ConteudoEntity;
-import domain.EntidadeEntity;
-import domain.EstruturaDeRegistroEntity;
-import domain.PermissaoEntity;
 import domain.proposta.regra.RegraEntity;
 
 import java.util.List;
 
-import domain.OpcaoDeCampoEntity;
-
- 
 
 @Entity
 @Table(name = "CampoDeEntidade")
@@ -65,7 +56,7 @@ public class CampoDeEntidadeEntity extends architecture.AbstractEntity
 	
     	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="campo", cascade=CascadeType.ALL)
-	private List<OpcaoDeCampoEntity> campoOpcaoDeCampo;
+	private List<OpcaoCampoEntity> campoOpcaoDeCampo;
 	
     	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="campoPosVigencia", cascade=CascadeType.ALL)
@@ -190,10 +181,10 @@ public class CampoDeEntidadeEntity extends architecture.AbstractEntity
 	
     	
 	
-  	public List<OpcaoDeCampoEntity> getCampoOpcaoDeCampo(){
+  	public List<OpcaoCampoEntity> getCampoOpcaoDeCampo(){
 		return this.campoOpcaoDeCampo;
 	};
-	public void setCampoOpcaoDeCampo(List<OpcaoDeCampoEntity> campoOpcaoDeCampo ){
+	public void setCampoOpcaoDeCampo(List<OpcaoCampoEntity> campoOpcaoDeCampo ){
 		this.campoOpcaoDeCampo=campoOpcaoDeCampo;
 	}
 	

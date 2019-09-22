@@ -1,16 +1,13 @@
 
-package domain;
+package domain.chavevalor;
 
-
+import java.math.BigDecimal;
 import javax.persistence.*;
 
-import domain.ConteudoEntity;
-import java.util.List;
- 
 
 @Entity
-@Table(name = "ValoresInteiro")
-public class ValoresInteiroEntity extends architecture.AbstractEntity
+@Table(name = "ValorFloat")
+public class ValorFloatEntity extends architecture.AbstractEntity
 {
 	
 	@Id
@@ -18,8 +15,8 @@ public class ValoresInteiroEntity extends architecture.AbstractEntity
 	@PrimaryKeyJoinColumn(name="idConteudo", referencedColumnName="idConteudo")
 	
 	private ConteudoEntity conteudo;
-	@Column(name = "ValorInteiro")
-	private Integer valorInteiro;
+	@Column(name = "ValorFloat")
+	private BigDecimal valorFloat;
 	
 	
 
@@ -38,12 +35,12 @@ public class ValoresInteiroEntity extends architecture.AbstractEntity
         	this.conteudo = conteudo;
 	};
 	
-	public Integer getValorInteiro(){
-		return this.valorInteiro;
+	public BigDecimal getValorFloat(){
+		return this.valorFloat;
 	};
 
-	public void setValorInteiro(Integer valorInteiro){
-        	this.valorInteiro = valorInteiro;
+	public void setValorFloat(BigDecimal valorFloat){
+        	this.valorFloat = valorFloat;
 	};
 	
 	

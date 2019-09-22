@@ -1,11 +1,9 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.ConteudoEntity;
- 
 
 @Entity
 @Table(name = "Binario")

@@ -1,11 +1,10 @@
 
-package domain;
+package domain.chavevalor;
 
 import java.time.LocalDate;
 
 import javax.persistence.*;
-import domain.PermissaoEntity;
- 
+
 
 @Entity
 @Table(name = "Log")

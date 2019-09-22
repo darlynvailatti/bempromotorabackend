@@ -2,7 +2,7 @@
 package domain.proposta.regra;
 
 
-import domain.parceiro.InformacaoEntity;
+import domain.chavevalor.InformacaoEntity;
 
 import javax.persistence.*;
 
@@ -32,13 +32,11 @@ public class RegraEntity extends architecture.AbstractEntity
 	@JoinColumn(name="idInformacaoComparacao")
 	private InformacaoEntity informacaoComparacao;
 	
-
-	// gets e sets
 	public Long getIdRegra(){
 		return this.idRegra;
 	};
 
-    	public void setIdRegra(Long idRegra){
+	public void setIdRegra(Long idRegra){
         	this.idRegra = idRegra;
 	};
 	
@@ -51,7 +49,7 @@ public class RegraEntity extends architecture.AbstractEntity
 		return this.modelodeRegra;
 	};
 
-    	public void setModelodeRegra(ModeloRegraPropostaEntity modelodeRegra){
+	public void setModelodeRegra(ModeloRegraPropostaEntity modelodeRegra){
         	this.modelodeRegra = modelodeRegra;
 	};
 	
@@ -69,6 +67,13 @@ public class RegraEntity extends architecture.AbstractEntity
 
     	public void setInformacaoComparacao(InformacaoEntity informacaoComparacao){
         	this.informacaoComparacao = informacaoComparacao;
-	};
-	
+	}
+
+	public OperadorRegraEnum getOperadorComparacao() {
+		return operadorComparacao;
+	}
+
+	public void setOperadorComparacao(OperadorRegraEnum operadorComparacao) {
+		this.operadorComparacao = operadorComparacao;
+	}
 }

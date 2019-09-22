@@ -1,11 +1,9 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.CampoDeEntidadeEntity;
-import domain.EstruturaDeRegistroEntity;
 import java.util.List;
 
  

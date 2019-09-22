@@ -1,5 +1,5 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
@@ -8,8 +8,8 @@ import java.util.List;
  
 
 @Entity
-@Table(name = "OpcaoDeCampo")
-public class OpcaoDeCampoEntity extends architecture.AbstractEntity
+@Table(name = "OpcaoCampo")
+public class OpcaoCampoEntity extends architecture.AbstractEntity
 {
 	
 	@Id
@@ -21,21 +21,18 @@ public class OpcaoDeCampoEntity extends architecture.AbstractEntity
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idCampo")
 	private CampoDeEntidadeEntity campo;
+
 	@Column(name = "NomeLogico")
 	private String nomeLogico;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="opcao", cascade=CascadeType.ALL)
 	private List<AliasEntity> opcaoAlias;
 	
-    	
-	
-
-	// gets e sets
 	public Long getIdOpcao(){
 		return this.idOpcao;
 	};
 
-    	public void setIdOpcao(Long idOpcao){
+	public void setIdOpcao(Long idOpcao){
         	this.idOpcao = idOpcao;
 	};
 	
@@ -48,10 +45,10 @@ public class OpcaoDeCampoEntity extends architecture.AbstractEntity
 		return this.campo;
 	};
 
-    	public void setCampo(CampoDeEntidadeEntity campo){
+	public void setCampo(CampoDeEntidadeEntity campo){
         	this.campo = campo;
 	};
-	
+
 	public String getNomeLogico(){
 		return this.nomeLogico;
 	};
@@ -60,21 +57,11 @@ public class OpcaoDeCampoEntity extends architecture.AbstractEntity
         	this.nomeLogico = nomeLogico;
 	};
 	
-	
-	
-	//novos
-	
   	public List<AliasEntity> getOpcaoAlias(){
 		return this.opcaoAlias;
 	};
 	public void setOpcaoAlias(List<AliasEntity> opcaoAlias ){
 		this.opcaoAlias=opcaoAlias;
 	}
-	
-    	
-	
-	
-	
-	
 	
 }

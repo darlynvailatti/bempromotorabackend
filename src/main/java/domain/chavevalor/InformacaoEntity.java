@@ -1,12 +1,9 @@
 
-package domain;
+package domain.chavevalor;
 
 
 import javax.persistence.*;
 
-import domain.EstruturaDeRegistroEntity;
-import domain.LogEntity;
-import domain.RegistroEntity;
 import domain.proposta.regra.RegraEntity;
 import java.util.List;
 
@@ -26,25 +23,26 @@ public class InformacaoEntity extends architecture.AbstractEntity
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idEstrutura")
 	private EstruturaDeRegistroEntity estrutura;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idRegistroDeInformacao")
 	private RegistroEntity registroDeInformacao;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="idConteudo")
+	private ConteudoEntity conteudo;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="informacao", cascade=CascadeType.ALL)
 	private List<LogEntity> informacaoLog;
-	
-    	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="informacaoComparacao", cascade=CascadeType.ALL)
 	private List<RegraEntity> informacaoComparacaoRegra;
 	
-    	
-	
-
-	// gets e sets
 	public Long getIdInformacao(){
 		return this.idInformacao;
 	};
 
-    	public void setIdInformacao(Long idInformacao){
+	public void setIdInformacao(Long idInformacao){
         	this.idInformacao = idInformacao;
 	};
 	
@@ -69,30 +67,27 @@ public class InformacaoEntity extends architecture.AbstractEntity
         	this.registroDeInformacao = registroDeInformacao;
 	};
 	
-	
-	
-	//novos
-	
   	public List<LogEntity> getInformacaoLog(){
 		return this.informacaoLog;
 	};
+
 	public void setInformacaoLog(List<LogEntity> informacaoLog ){
 		this.informacaoLog=informacaoLog;
 	}
-	
-    	
-	
+
   	public List<RegraEntity> getInformacaoComparacaoRegra(){
 		return this.informacaoComparacaoRegra;
 	};
+
 	public void setInformacaoComparacaoRegra(List<RegraEntity> informacaoComparacaoRegra ){
 		this.informacaoComparacaoRegra=informacaoComparacaoRegra;
 	}
-	
-    	
-	
-	
-	
-	
-	
+
+	public ConteudoEntity getConteudo() {
+		return conteudo;
+	}
+
+	public void setConteudo(ConteudoEntity conteudo) {
+		this.conteudo = conteudo;
+	}
 }
