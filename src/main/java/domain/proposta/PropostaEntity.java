@@ -27,9 +27,9 @@ public class PropostaEntity extends architecture.AbstractEntity {
 	@JoinColumn(name="idModelodeRegra")
 	private ModeloRegraPropostaEntity modelodeRegra;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idSituacao")
-	private SituacaoPropostaEntity situacao;
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "idSituacao")
+	private SituacaoPropostaCreditoEnum situacao;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idConvenio")
@@ -83,11 +83,11 @@ public class PropostaEntity extends architecture.AbstractEntity {
         	this.modelodeRegra = modelodeRegra;
 	};
 	
-	public SituacaoPropostaEntity getSituacao(){
+	public SituacaoPropostaCreditoEnum getSituacao(){
 		return this.situacao;
 	};
 
-	public void setSituacao(SituacaoPropostaEntity situacao){
+	public void setSituacao(SituacaoPropostaCreditoEnum situacao){
         	this.situacao = situacao;
 	};
 	

@@ -28,9 +28,9 @@ public class EvolucaoPropostaEntity extends architecture.AbstractEntity
 	@JoinColumn(name="idNotificacao")
 	private NotificacaoEntity notificacao;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idSituacao")
-	private SituacaoPropostaEntity situacao;
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "idSituacao")
+	private SituacaoPropostaCreditoEnum situacao;
 
 	@Column(name = "DataHora")
 	private LocalDate dataHora;
@@ -64,11 +64,11 @@ public class EvolucaoPropostaEntity extends architecture.AbstractEntity
         	this.notificacao = notificacao;
 	};
 	
-	public SituacaoPropostaEntity getSituacao(){
+	public SituacaoPropostaCreditoEnum getSituacao(){
 		return this.situacao;
 	};
 
-    	public void setSituacao(SituacaoPropostaEntity situacao){
+    	public void setSituacao(SituacaoPropostaCreditoEnum situacao){
         	this.situacao = situacao;
 	};
 	
