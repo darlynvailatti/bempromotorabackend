@@ -15,7 +15,7 @@ public interface IClausulaRepository extends PagingAndSortingRepository<Clausula
 
 	ClausulaEntity findFetchById(Long clausula);
 
-	Page<ClausulaDTO> findFetchByDescricao(String descricao, Pageable pageRequest);
+	Page<ClausulaEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
 
 	Page<ClausulaEntity> findFetchByDataFinalDeVigencia(Date dataFinalDeVigencia, Pageable pageRequest);
 	
