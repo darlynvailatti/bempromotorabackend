@@ -1,27 +1,43 @@
 
 package rest.dto;
 
+
+import org.springframework.data.domain.Page;
 import rest.pattern.AbstractRestDTO;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+import rest.dto.EntidadeDTO;
 
-public class RegistroDTO extends AbstractRestDTO {
-
-	private Long registro_de_Informa��o;
+/**
+* Registros "Registro"
+*/
+public class RegistroDTO extends AbstractRestDTO{
+	/**
+	* Chave Registro de Informa��o (RegistroDeInformacao) de Registros
+	*/
+	private Long registroDeInformacao;
 	
-	private EntidadeDTO tidade;
-
-	public Long getRegistro_de_Informa��o(){
-		return this.registro_de_Informa��o;
+	/**
+	* Entidade (Entidades.IdEntidade NOT NULL) Entidades
+	*/
+	private EntidadeDTO entidade;
+	
+	
+	public Long getRegistroDeInformacao(){
+		return this.registroDeInformacao;
 	}
 
-    	public void setRegistro_de_Informa��o(Long registro_de_Informa��o){
-        	this.registro_de_Informa��o = registro_de_Informa��o;
+    	public void setRegistroDeInformacao(Long registroDeInformacao){
+        	this.registroDeInformacao = registroDeInformacao;
 	}
-	public EntidadeDTO getTidade(){
-		return this.tidade;
+	public EntidadeDTO getEntidade(){
+		return this.entidade;
 	}
 
-    	public void setTidade(EntidadeDTO tidade){
-        	this.tidade = tidade;
+    	public void setEntidade(EntidadeDTO entidade){
+        	this.entidade = entidade;
 	}
 	
 }
