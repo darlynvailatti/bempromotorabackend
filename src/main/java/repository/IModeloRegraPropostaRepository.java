@@ -5,17 +5,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import domain.proposta.regra.ModeloRegraPropostaEntity;
+
 import java.util.Date;
 
 @Repository
-public interface IModeloRegraPropostaRepository extends PagingAndSortingRepository<ModeloRegraProposta, Long> {
+public interface IModeloRegraPropostaRepository extends PagingAndSortingRepository<ModeloRegraPropostaEntity, Long> {
 
-	ModeloRegraProposta findFetchById(Long idModeloDeRegra);
+	ModeloRegraPropostaEntity findFetchById(Long idModeloDeRegra);
 	
-	Page<ModeloRegraProposta> findFetchByDescricao(String descricao, Pageable pageRequest);
+	Page<ModeloRegraPropostaEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
 
-	Page<ModeloRegraProposta> findFetchByDataInicioVigencia(Date dataInicioVigencia, Pageable pageRequest);
+	Page<ModeloRegraPropostaEntity> findFetchByDataInicioVigencia(Date dataInicioVigencia, Pageable pageRequest);
 	
-	Page<ModeloRegraProposta> findFetchByDataFimVigencia(Date dataFimVigencia, Pageable pageRequest);
+	Page<ModeloRegraPropostaEntity> findFetchByDataFimVigencia(Date dataFimVigencia, Pageable pageRequest);
 	
 }

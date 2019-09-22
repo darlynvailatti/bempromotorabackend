@@ -5,13 +5,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import domain.TipoDocumentoEntity;
+
 @Repository
-public interface ITipoDocumentoRepository extends PagingAndSortingRepository<TipoDocumento, Long> {
+public interface ITipoDocumentoRepository extends PagingAndSortingRepository<TipoDocumentoEntity, Long> {
 
 
-	TipoDocumento findFetchById(Long idTipoDocumento);
+	TipoDocumentoEntity findFetchById(Long idTipoDocumento);
 	
-	Page<TipoDocumento> findFetchByDescricao(String descricao, Pageable pageRequest);
+	Page<TipoDocumentoEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
 
 	
 }

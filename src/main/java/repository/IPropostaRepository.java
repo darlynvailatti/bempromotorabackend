@@ -1,31 +1,73 @@
+
 package repository;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-
-import java.math.BigDecimal;
-import java.util.Date;
+import domain.proposta.PropostaEntity;
 
 @Repository
-public interface IPropostaRepository extends PagingAndSortingRepository<Proposta, Long> {
+public interface IPropostaRepository extends PagingAndSortingRepository<PropostaEntity, Long> {
 
-	Proposta findFetchById(Long idProposta);
+
+	//@EntityGraph(attributePaths= {"modeloRegrasProposta"}, type = @EntityGraph.EntityGraphType.LOAD)
 	
-	Page<Proposta> findFetchByModeloRegrasProposta(Long idModelodeRegra, Pageable pageRequest);
-	Page<Proposta> findFetchByModeloRegrasPropostaInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<Proposta> findFetchBySituacoesDaProposta(Long idSituacao, Pageable pageRequest);
-	Page<Proposta> findFetchBySituacoesDaPropostaInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<Proposta> findFetchByConvenio(Long idConvenio, Pageable pageRequest);
-	Page<Proposta> findFetchByConvenioInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<Proposta> findFetchByContrato(Long idContrato, Pageable pageRequest);
-	Page<Proposta> findFetchByContratoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<Proposta> findFetchByValor(BigDecimal valor, Pageable pageRequest);
-	Page<Proposta> findFetchByData(Date data, Pageable pageRequest);
-	Page<Proposta> findFetchByUsuario(Long idUsuario, Pageable pageRequest);
-	Page<Proposta> findFetchByUsuarioInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<Proposta> findFetchByProtocolodoConvenio(String protocolodoConvenio, Pageable pageRequest);
-	Page<Proposta> findFetchByObservacao(String observacao, Pageable pageRequest);
+
+	//@EntityGraph(attributePaths= {"situacoesDaProposta"}, type = @EntityGraph.EntityGraphType.LOAD)
+	
+
+	//@EntityGraph(attributePaths= {"convenio"}, type = @EntityGraph.EntityGraphType.LOAD)
+	
+
+	//@EntityGraph(attributePaths= {"contrato"}, type = @EntityGraph.EntityGraphType.LOAD)
+	
+
+	//@EntityGraph(attributePaths= {"usuario"}, type = @EntityGraph.EntityGraphType.LOAD)
+	
+
+	//@EntityGraph(attributePaths= {"cliente"}, type = @EntityGraph.EntityGraphType.LOAD)
+	PropostaEntity findFetchById(Long idProposta);
+	
+	Page<PropostaEntity> findFetchByModeloRegrasProposta(Long idModelodeRegra, Pageable pageRequest);
+	Page<PropostaEntity> findFetchByModeloRegrasPropostaInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<PropostaEntity> findFetchBySituacoesDaProposta(Long idSituacao, Pageable pageRequest);
+	Page<PropostaEntity> findFetchBySituacoesDaPropostaInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<PropostaEntity> findFetchByConvenio(Long idConvenio, Pageable pageRequest);
+	Page<PropostaEntity> findFetchByConvenioInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<PropostaEntity> findFetchByContrato(Long idContrato, Pageable pageRequest);
+	Page<PropostaEntity> findFetchByContratoInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<PropostaEntity> findFetchByValor(BigDecimal valor, Pageable pageRequest);
+	
+	
+	Page<PropostaEntity> findFetchByData(LocalDate data, Pageable pageRequest);
+	
+	
+	Page<PropostaEntity> findFetchByUsuario(Long idUsuario, Pageable pageRequest);
+	Page<PropostaEntity> findFetchByUsuarioInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<PropostaEntity> findFetchByProtocolodoConvenio(String protocolodoConvenio, Pageable pageRequest);
+	
+	
+	Page<PropostaEntity> findFetchByObservacao(String observacao, Pageable pageRequest);
+	
+	
 	
 }

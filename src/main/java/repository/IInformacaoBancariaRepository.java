@@ -1,28 +1,38 @@
-package repository;
 
-import domain.InformacaoBancaria;
+package repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
+import domain.parceiro.InformacaoBancariaEntity;
 
 @Repository
-public interface IInformacaoBancariaRepository extends PagingAndSortingRepository<InformacaoBancaria, Long> {
+public interface IInformacaoBancariaRepository extends PagingAndSortingRepository<InformacaoBancariaEntity, Long> {
 
-	InformacaoBancaria findFetchById(Long idInformacaoBancaria);
 
-	Page<InformacaoBancaria> findFetchByParceiro(Long idParceiro, Pageable pageRequest);
-
-	Page<InformacaoBancaria> findFetchByParceiroInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-
-	Page<InformacaoBancaria> findFetchByBanco(String banco, Pageable pageRequest);
-
-	Page<InformacaoBancaria> findFetchByAgencia(String agencia, Pageable pageRequest);
-
-	Page<InformacaoBancaria> findFetchByConta(String conta, Pageable pageRequest);
+	//@EntityGraph(attributePaths= {"parceiro"}, type = @EntityGraph.EntityGraphType.LOAD)
+	InformacaoBancariaEntity findFetchById(Long idInformacaoBancaria);
 	
-	Page<InformacaoBancaria> findFetchByAtiva(String ativa, Pageable pageRequest);
+	Page<InformacaoBancariaEntity> findFetchByParceiro(Long idParceiro, Pageable pageRequest);
+	Page<InformacaoBancariaEntity> findFetchByParceiroInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
 	
-	Page<InformacaoBancaria> findFetchByRecebimentoOuPagamento(String recebimentoOuPagamento, Pageable pageRequest);
+	
+	
+	Page<InformacaoBancariaEntity> findFetchByBanco(String banco, Pageable pageRequest);
+	
+	
+	Page<InformacaoBancariaEntity> findFetchByAgencia(String agencia, Pageable pageRequest);
+	
+	
+	Page<InformacaoBancariaEntity> findFetchByConta(String conta, Pageable pageRequest);
+	
+	
+	Page<InformacaoBancariaEntity> findFetchByAtiva(String ativa, Pageable pageRequest);
+	
+	
+	Page<InformacaoBancariaEntity> findFetchByRecebimentoOuPagamento(String recebimentoOuPagamento, Pageable pageRequest);
+	
+	
 	
 }

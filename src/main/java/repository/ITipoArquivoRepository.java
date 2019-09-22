@@ -6,12 +6,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ITipoArquivoRepository extends PagingAndSortingRepository<TipoArquivo, Long> {
+import domain.TipoArquivoEntity;
 
-	TipoArquivo findFetchById(Long idTipoArquivo);
-	Page<TipoArquivo> findFetchByTiposDocumento(Long idTipoDocumento, Pageable pageRequest);
-	Page<TipoArquivo> findFetchByTiposDocumentoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<TipoArquivo> findFetchByDescricao(String descricao, Pageable pageRequest);
+@Repository
+public interface ITipoArquivoRepository extends PagingAndSortingRepository<TipoArquivoEntity, Long> {
+
+	TipoArquivoEntity findFetchById(Long idTipoArquivo);
+	Page<TipoArquivoEntity> findFetchByTiposDocumento(Long idTipoDocumento, Pageable pageRequest);
+	Page<TipoArquivoEntity> findFetchByTiposDocumentoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
+	Page<TipoArquivoEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
 
 }

@@ -1,19 +1,40 @@
-package repository;
 
+package repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
+import domain.proposta.regra.RegraEntity;
 
 @Repository
-public interface IRegraRepository extends PagingAndSortingRepository<Regra, Long> {
+public interface IRegraRepository extends PagingAndSortingRepository<RegraEntity, Long> {
 
-	Regra findFetchById(Long idRegra);
-	Page<Regra> findFetchByModeloRegrasProposta(Long idModelodeRegra, Pageable pageRequest);
-	Page<Regra> findFetchByModeloRegrasPropostaInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<Regra> findFetchByDescricao(String descricao, Pageable pageRequest);
-	Page<Regra> findFetchByOperadorComparacao(String operadorComparacao, Pageable pageRequest);
-	Page<Regra> findFetchByInformacao(Long idInformacaoComparacao, Pageable pageRequest);
-	Page<Regra> findFetchByInformacaoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
 
+	//@EntityGraph(attributePaths= {"modeloRegrasProposta"}, type = @EntityGraph.EntityGraphType.LOAD)
+	
+
+	//@EntityGraph(attributePaths= {"informacao"}, type = @EntityGraph.EntityGraphType.LOAD)
+	
+
+	//@EntityGraph(attributePaths= {"campoDeEntidade"}, type = @EntityGraph.EntityGraphType.LOAD)
+	RegraEntity findFetchById(Long idRegra);
+	
+	Page<RegraEntity> findFetchByModeloRegrasProposta(Long idModelodeRegra, Pageable pageRequest);
+	Page<RegraEntity> findFetchByModeloRegrasPropostaInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<RegraEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
+	
+	
+	Page<RegraEntity> findFetchByOperadorComparacao(String operadorComparacao, Pageable pageRequest);
+	
+	
+	Page<RegraEntity> findFetchByInformacao(Long idInformacaoComparacao, Pageable pageRequest);
+	Page<RegraEntity> findFetchByInformacaoInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	
 }

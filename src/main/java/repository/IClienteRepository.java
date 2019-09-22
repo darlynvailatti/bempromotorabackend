@@ -5,18 +5,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import domain.cliente.ClienteEntity;
+
 import java.util.Date;
 
 @Repository
-public interface IClienteRepository extends PagingAndSortingRepository<Cliente, Long> {
+public interface IClienteRepository extends PagingAndSortingRepository<ClienteEntity, Long> {
 
-	Cliente findFetchById(Long idCliente);
+	ClienteEntity findFetchById(Long idCliente);
 
-	Page<Cliente> findFetchByNome(String nome, Pageable pageRequest);
+	Page<ClienteEntity> findFetchByNome(String nome, Pageable pageRequest);
 	
-	Page<Cliente> findFetchByDataNascimento(Date dataNascimento, Pageable pageRequest);
+	Page<ClienteEntity> findFetchByDataNascimento(Date dataNascimento, Pageable pageRequest);
 
-	Page<Cliente> findFetchByBloqueado(String bloqueado, Pageable pageRequest);
+	Page<ClienteEntity> findFetchByBloqueado(String bloqueado, Pageable pageRequest);
 	
 	
 	
