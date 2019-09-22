@@ -12,7 +12,7 @@ public class PropostaDTO extends AbstractRestDTO {
 
 	private ModeloRegrasPropostaDTO modelodeRegra;
 
-	private SituacoesDaPropostaDTO situacao;
+	private SituacaoPropostaDTO situacao;
 	
 	private ConvenioDTO convenio;
 	
@@ -42,11 +42,11 @@ public class PropostaDTO extends AbstractRestDTO {
     	public void setModelodeRegra(ModeloRegrasPropostaDTO modelodeRegra){
         	this.modelodeRegra = modelodeRegra;
 	}
-	public SituacoesDaPropostaDTO getSituacao(){
+	public SituacaoPropostaDTO getSituacao(){
 		return this.situacao;
 	}
 
-    	public void setSituacao(SituacoesDaPropostaDTO situacao){
+    	public void setSituacao(SituacaoPropostaDTO situacao){
         	this.situacao = situacao;
 	}
 	public ConvenioDTO getConvenio(){

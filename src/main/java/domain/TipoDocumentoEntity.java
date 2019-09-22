@@ -5,8 +5,8 @@ package domain;
 import javax.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
- 
 
 @Entity
 @Table(name = "TipoDocumento")
@@ -22,22 +22,11 @@ public class TipoDocumentoEntity extends architecture.AbstractEntity
 	@Column(name = "Descricao")
 	private String descricao;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="tipoDocumento", cascade=CascadeType.ALL)
-	private List<TipoArquivoEntity> tipoDocumentoTiposDeArquivo;
-	
-    	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="tipoDocumento", cascade=CascadeType.ALL)
-	private List<DocumentoEntity> tipoDocumentoDocumento;
-	
-    	
-	
-
-	// gets e sets
 	public Long getIdTipoDocumento(){
 		return this.idTipoDocumento;
 	};
 
-    	public void setIdTipoDocumento(Long idTipoDocumento){
+	public void setIdTipoDocumento(Long idTipoDocumento){
         	this.idTipoDocumento = idTipoDocumento;
 	};
 	
@@ -54,30 +43,5 @@ public class TipoDocumentoEntity extends architecture.AbstractEntity
         	this.descricao = descricao;
 	};
 	
-	
-	
-	//novos
-	
-  	public List<TipoArquivoEntity> getTipoDocumentoTiposDeArquivo(){
-		return this.tipoDocumentoTiposDeArquivo;
-	};
-	public void setTipoDocumentoTiposDeArquivo(List<TipoArquivoEntity> tipoDocumentoTiposDeArquivo ){
-		this.tipoDocumentoTiposDeArquivo=tipoDocumentoTiposDeArquivo;
-	}
-	
-    	
-	
-  	public List<DocumentoEntity> getTipoDocumentoDocumento(){
-		return this.tipoDocumentoDocumento;
-	};
-	public void setTipoDocumentoDocumento(List<DocumentoEntity> tipoDocumentoDocumento ){
-		this.tipoDocumentoDocumento=tipoDocumentoDocumento;
-	}
-	
-    	
-	
-	
-	
-	
-	
+
 }

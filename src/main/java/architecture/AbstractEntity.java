@@ -1,4 +1,4 @@
-package domain;
+package architecture;
 
 public abstract class AbstractEntity {
 

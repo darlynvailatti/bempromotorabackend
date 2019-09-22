@@ -2,6 +2,9 @@
 package domain;
 
 
+import domain.parceiro.ParceiroEntity;
+import domain.proposta.EvolucaoPropostaEntity;
+
 import javax.persistence.*;
 
 import java.util.List;
@@ -22,24 +25,22 @@ public class NotificacaoEntity extends architecture.AbstractEntity
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idParceiroNotificador")
 	private ParceiroEntity parceiroNotificador;
+
 	@Column(name = "TextoNotificacao")
 	private String textoNotificacao;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idParceiroNotificado")
 	private ParceiroEntity parceiroNotificado;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="notificacao", cascade=CascadeType.ALL)
 	private List<EvolucaoPropostaEntity> notificacaoEvolucoesDaProposta;
 	
-    	
-	
-
-	// gets e sets
 	public Long getIdNotificacao(){
 		return this.idNotificacao;
 	};
 
-    	public void setIdNotificacao(Long idNotificacao){
+	public void setIdNotificacao(Long idNotificacao){
         	this.idNotificacao = idNotificacao;
 	};
 	
@@ -71,22 +72,12 @@ public class NotificacaoEntity extends architecture.AbstractEntity
     	public void setParceiroNotificado(ParceiroEntity parceiroNotificado){
         	this.parceiroNotificado = parceiroNotificado;
 	};
-	
-	
-	
-	//novos
-	
+
   	public List<EvolucaoPropostaEntity> getNotificacaoEvolucoesDaProposta(){
 		return this.notificacaoEvolucoesDaProposta;
 	};
 	public void setNotificacaoEvolucoesDaProposta(List<EvolucaoPropostaEntity> notificacaoEvolucoesDaProposta ){
 		this.notificacaoEvolucoesDaProposta=notificacaoEvolucoesDaProposta;
 	}
-	
-    	
-	
-	
-	
-	
-	
+
 }

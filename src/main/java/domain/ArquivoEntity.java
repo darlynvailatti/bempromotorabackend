@@ -1,9 +1,7 @@
 
 package domain;
 
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "Arquivo")
@@ -19,29 +17,17 @@ public class ArquivoEntity extends architecture.AbstractEntity
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="TipoArquivo")
 	private TipoArquivoEntity poArquivo;
-	@Column(name = "ImagemDeDocumento")
-	private byte[] imagemDeDocumento;
-	
-	@OneToOne(fetch = FetchType.LAZY,mappedBy="arquivo", cascade=CascadeType.ALL)
-	private DocumentoArquivoEntity arquivoDocumentoArquivo;
-	
-    	
-	@OneToOne(fetch = FetchType.LAZY,mappedBy="arquivo", cascade=CascadeType.ALL)
-	private ContratoArquivoEntity arquivoContratoArquivo;
-	
-    	
-	@OneToOne(fetch = FetchType.LAZY,mappedBy="arquivo", cascade=CascadeType.ALL)
-	private PropostaArquivoEntity arquivoPropostaArquivo;
-	
-    	
-	
 
-	// gets e sets
+	@Column(name = "ImagemDeDocumento")
+	private byte[] conteudo;
+
+	private String extensao;
+	
 	public Long getIdArquivo(){
 		return this.idArquivo;
 	};
 
-    	public void setIdArquivo(Long idArquivo){
+	public void setIdArquivo(Long idArquivo){
         	this.idArquivo = idArquivo;
 	};
 	
@@ -54,54 +40,23 @@ public class ArquivoEntity extends architecture.AbstractEntity
 		return this.poArquivo;
 	};
 
-    	public void setPoArquivo(TipoArquivoEntity poArquivo){
+	public void setPoArquivo(TipoArquivoEntity poArquivo){
         	this.poArquivo = poArquivo;
 	};
 	
-	public byte[] getImagemDeDocumento(){
-		return this.imagemDeDocumento;
+	public byte[] getConteudo(){
+		return this.conteudo;
 	};
 
-	public void setImagemDeDocumento(byte[] imagemDeDocumento){
-        	this.imagemDeDocumento = imagemDeDocumento;
-	};
-	
-	
-	
-	//novos
-	
-  	public DocumentoArquivoEntity getArquivoDocumentoArquivo(){
-		return this.arquivoDocumentoArquivo;
-	};
-	public void setArquivoDocumentoArquivo(DocumentoArquivoEntity arquivoDocumentoArquivo ){
-		this.arquivoDocumentoArquivo=arquivoDocumentoArquivo;
+	public void setConteudo(byte[] conteudo){
+        	this.conteudo = conteudo;
 	};
 
-	
-    	
-	
-  	public ContratoArquivoEntity getArquivoContratoArquivo(){
-		return this.arquivoContratoArquivo;
-	};
-	public void setArquivoContratoArquivo(ContratoArquivoEntity arquivoContratoArquivo ){
-		this.arquivoContratoArquivo=arquivoContratoArquivo;
-	};
+	public String getExtensao() {
+		return extensao;
+	}
 
-	
-    	
-	
-  	public PropostaArquivoEntity getArquivoPropostaArquivo(){
-		return this.arquivoPropostaArquivo;
-	};
-	public void setArquivoPropostaArquivo(PropostaArquivoEntity arquivoPropostaArquivo ){
-		this.arquivoPropostaArquivo=arquivoPropostaArquivo;
-	};
-
-	
-    	
-	
-	
-	
-	
-	
+	public void setExtensao(String extensao) {
+		this.extensao = extensao;
+	}
 }

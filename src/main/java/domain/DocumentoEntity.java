@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import javax.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
- 
 
 @Entity
 @Table(name = "Documento")
@@ -20,10 +20,6 @@ public class DocumentoEntity extends architecture.AbstractEntity
 	@Column(name = "idDocumento", updatable = false, nullable = false)
 	private Long idDocumento;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idParceiro")
-	private ParceiroEntity parceiro;
-
 	@Column(name = "OrgaoEmissor")
 	private String orgaoEmissor;
 	
@@ -34,31 +30,20 @@ public class DocumentoEntity extends architecture.AbstractEntity
 	private String codigoDocumento;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="documento", cascade=CascadeType.ALL)
-	private List<DocumentoArquivoEntity> documentoDocumentoArquivo;
+	private Set<DocumentoArquivoEntity> arquivos;
 	
     	
-	
-
-	// gets e sets
 	public Long getIdDocumento(){
 		return this.idDocumento;
 	};
 
-    	public void setIdDocumento(Long idDocumento){
+	public void setIdDocumento(Long idDocumento){
         	this.idDocumento = idDocumento;
 	};
 	
 	@Override
 	public Long getId(){
 		return getIdDocumento();
-	};
-	
-	public ParceiroEntity getParceiro(){
-		return this.parceiro;
-	};
-
-    	public void setParceiro(ParceiroEntity parceiro){
-        	this.parceiro = parceiro;
 	};
 	
 	public String getOrgaoEmissor(){
@@ -85,21 +70,12 @@ public class DocumentoEntity extends architecture.AbstractEntity
         	this.codigoDocumento = codigoDocumento;
 	};
 	
-	
-	
-	//novos
-	
-  	public List<DocumentoArquivoEntity> getDocumentoDocumentoArquivo(){
-		return this.documentoDocumentoArquivo;
+  	public Set<DocumentoArquivoEntity> getArquivos(){
+		return this.arquivos;
 	};
-	public void setDocumentoDocumentoArquivo(List<DocumentoArquivoEntity> documentoDocumentoArquivo ){
-		this.documentoDocumentoArquivo=documentoDocumentoArquivo;
+
+  	public void setArquivos(Set<DocumentoArquivoEntity> arquivos){
+		this.arquivos = arquivos;
 	}
-	
-    	
-	
-	
-	
-	
-	
+
 }

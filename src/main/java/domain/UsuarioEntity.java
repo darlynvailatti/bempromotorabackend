@@ -2,11 +2,9 @@
 package domain;
 
 
+import domain.parceiro.PessoasFisicaEntity;
+
 import javax.persistence.*;
-
-import java.util.List;
-
- 
 
 @Entity
 @Table(name = "Usuario")
@@ -24,22 +22,11 @@ public class UsuarioEntity extends architecture.AbstractEntity
 	@Column(name = "Ativo")
 	private String ativo;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="pessoaFisica", cascade=CascadeType.ALL)
-	private List<EvolucaoPropostaEntity> usuarioEvolucoesDaProposta;
-	
-    	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="pessoaFisica", cascade=CascadeType.ALL)
-	private List<PropostaEntity> usuarioProposta;
-	
-    	
-	
-
-	// gets e sets
 	public PessoasFisicaEntity getPessoaFisica(){
 		return this.pessoaFisica;
 	};
 
-    	public void setPessoaFisica(PessoasFisicaEntity pessoaFisica){
+	public void setPessoaFisica(PessoasFisicaEntity pessoaFisica){
         	this.pessoaFisica = pessoaFisica;
 	};
 
@@ -63,31 +50,6 @@ public class UsuarioEntity extends architecture.AbstractEntity
 	public void setAtivo(String ativo){
         	this.ativo = ativo;
 	};
-	
-	
-	
-	//novos
-	
-  	public List<EvolucaoPropostaEntity> getUsuarioEvolucoesDaProposta(){
-		return this.usuarioEvolucoesDaProposta;
-	};
-	public void setUsuarioEvolucoesDaProposta(List<EvolucaoPropostaEntity> usuarioEvolucoesDaProposta ){
-		this.usuarioEvolucoesDaProposta=usuarioEvolucoesDaProposta;
-	}
-	
-    	
-	
-  	public List<PropostaEntity> getUsuarioProposta(){
-		return this.usuarioProposta;
-	};
-	public void setUsuarioProposta(List<PropostaEntity> usuarioProposta ){
-		this.usuarioProposta=usuarioProposta;
-	}
-	
-    	
-	
-	
-	
-	
+
 	
 }

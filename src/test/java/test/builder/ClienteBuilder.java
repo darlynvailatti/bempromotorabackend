@@ -2,7 +2,9 @@ package test.builder;
 
 import common.Data;
 import common.Periodo;
-import domain.*;
+import domain.cliente.ClienteEntity;
+import domain.cliente.SituacaoConvenioEnum;
+import domain.parceiro.EnderecoEntity;
 
 import java.util.HashSet;
 import java.util.Set;

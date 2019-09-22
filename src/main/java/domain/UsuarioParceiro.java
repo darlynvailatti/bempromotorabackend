@@ -1,6 +1,7 @@
 package domain;
 
 import common.Periodo;
+import domain.parceiro.ParceiroEntity;
 
 import javax.persistence.*;
 

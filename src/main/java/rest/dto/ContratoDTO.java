@@ -7,7 +7,7 @@ public class ContratoDTO extends AbstractRestDTO {
 
 	private Long idContrato;
 
-	private VersoesContratoDTO versao;
+	private VersaoContratoDTO versao;
 
 	
 	public Long getIdContrato(){
@@ -17,11 +17,11 @@ public class ContratoDTO extends AbstractRestDTO {
     	public void setIdContrato(Long idContrato){
         	this.idContrato = idContrato;
 	}
-	public VersoesContratoDTO getVersao(){
+	public VersaoContratoDTO getVersao(){
 		return this.versao;
 	}
 
-    	public void setVersao(VersoesContratoDTO versao){
+    	public void setVersao(VersaoContratoDTO versao){
         	this.versao = versao;
 	}
 	
