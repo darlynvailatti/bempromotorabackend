@@ -4,12 +4,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
+import domain.proposta.contrato.ModeloContratoEntity;
 
 @Repository
-public interface IModeloContratoRepository extends PagingAndSortingRepository<ModeloContrato, Long> {
+public interface IModeloContratoRepository extends PagingAndSortingRepository<ModeloContratoEntity, Long> {
 
-	ModeloContrato findFetchById(Long modeloContrato);
+	ModeloContratoEntity findFetchById(Long modeloContrato);
 
-	Page<ModeloContrato> findFetchByNome(String nome, Pageable pageRequest);
+	Page<ModeloContratoEntity> findFetchByNome(String nome, Pageable pageRequest);
 
 }

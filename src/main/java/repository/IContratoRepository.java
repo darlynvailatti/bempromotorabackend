@@ -5,15 +5,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-
+import domain.proposta.contrato.ContratoEntity;
 @Repository
-public interface IContratoRepository extends PagingAndSortingRepository<Contrato, Long> {
+public interface IContratoRepository extends PagingAndSortingRepository<ContratoEntity, Long> {
 
-	Contrato findFetchById(Long idContrato);
+	ContratoEntity findFetchById(Long idContrato);
 	
-	Page<Contrato> findFetchByVersoesContrato(Long idVersao, Pageable pageRequest);
+	Page<ContratoEntity> findFetchByVersoesContrato(Long idVersao, Pageable pageRequest);
 
-	Page<Contrato> findFetchByVersoesContratoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
+	Page<ContratoEntity> findFetchByVersoesContratoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
 	
 	
 	

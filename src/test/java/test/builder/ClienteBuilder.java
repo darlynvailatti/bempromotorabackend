@@ -1,49 +1,68 @@
 package test.builder;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import common.Data;
 import common.Periodo;
 import domain.cliente.ClienteEntity;
+import domain.cliente.ConvenioClienteEntity;
+import domain.cliente.ConvenioEntity;
+import domain.parceiro.PessoasFisicaEntity;
+import domain.parceiro.ParceiroEntity;
 import domain.cliente.SituacaoConvenioEnum;
-import domain.parceiro.EnderecoEntity;
-
-import java.util.HashSet;
-import java.util.Set;
-
+import domain.parceiro.LocalidadeEntity;
+import domain.parceiro.LogradouroEntity;
 public class ClienteBuilder {
 
 
     public static ClienteEntity ClienteComEndereco(){
-        ClienteEntity padrao = new ClienteEntity();
-        padrao.setCpf("08557752971");
+    
+        ParceiroEntity parceiro=new ParceiroEntity();
+        PessoasFisicaEntity pessoafisica=new PessoasFisicaEntity();
+        parceiro.setIdParceiro(1l);
+        pessoafisica.setParceiro(parceiro);
+        pessoafisica.setCPF("08557752971");
+        
+    	ClienteEntity padrao = new ClienteEntity();
+        padrao.setCliente(pessoafisica)
+        ;
         padrao.setNome("Gandalf");
-        padrao.setId(1L);
+        padrao.setDataNascimento(LocalDate.of(2037, 10, 12));
 
-        EnderecoEntity endereco = new EnderecoEntity();
-        endereco.setCep("08088328");
-        endereco.setId(1L);
-        endereco.setLogradouro("R. da Conceicao 193D");
-        endereco.setParceiro(padrao);
-
-        Data umDoQuatroDeDezenove = Data.em(1, 4, 2019);
-        Data trintaEUmDoDozeDeDezenove = Data.em(31, 12, 2019);
-        Periodo vigencia = Periodo.de(umDoQuatroDeDezenove, trintaEUmDoDozeDeDezenove);
-        endereco.setVigencia(vigencia);
-
+        LocalidadeEntity localidade=new LocalidadeEntity();
+        localidade.setIdLocalidade(1l);
+        localidade.setParceiro(parceiro);
+        localidade.setResidencialouComercial("R");  //Residencial
+        localidade.setDescricao("Endereco do filho, pois moram juntos");
+        
+        LogradouroEntity endereco = new LogradouroEntity();
+        endereco.setCEP("08088328");
+        endereco.setIdLogradouro(1l);
+        endereco.setEndereco("R. da Conceicao");
+        endereco.setNumero("193D");
+        endereco.setLocalidade(localidade);
+       
+        /*
         Set<EnderecoEntity> enderecos = new HashSet<>();
         enderecos.add(endereco);
         padrao.setEnderecos(enderecos);
+		*/
         return padrao;
+        
     }
 
-    public static Cliente semConvenio(){
+    public static ClienteEntity semConvenio(){
         return ClienteComEndereco();
     }
 
-    public static Cliente comStiuacaoDeConvenio(SituacaoConvenioEnum situacao) {
-        Convenio inss = ConvenioBuilder.INSS();
-        Cliente cliente = ClienteComEndereco();
-        ConvenioCliente convenioCliente = new ConvenioCliente(inss, cliente, situacao);
-        cliente.setConvenio(convenioCliente);
+    public static ClienteEntity comStiuacaoDeConvenio(SituacaoConvenioEnum situacao) {
+        ConvenioEntity inss = ConvenioBuilder.INSS();
+        ClienteEntity cliente = ClienteComEndereco();
+        Data umDoQuatroDeDezenove = Data.em(1, 4, 2019);
+        Data trintaEUmDoDozeDeDezenove = Data.em(31, 12, 2019);
+        Periodo vigencia = Periodo.de(umDoQuatroDeDezenove, trintaEUmDoDozeDeDezenove);
+        ConvenioClienteEntity convenioCliente = new ConvenioClienteEntity(inss, cliente, vigencia);
         return cliente;
     }
 

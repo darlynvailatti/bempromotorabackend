@@ -6,18 +6,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import domain.proposta.contrato.VersaoContratoEntity;
+
 import java.sql.Blob;
 import java.util.Date;
 
 @Repository
-public interface IVersaoContratoRepository extends PagingAndSortingRepository<VersaoContrato, Long> {
+public interface IVersaoContratoRepository extends PagingAndSortingRepository<VersaoContratoEntity, Long> {
 
-	VersaoContrato findFetchById(Long versaoModelo);
-	Page<VersaoContrato> findFetchByModelosContrato(Long modelodeContrato, Pageable pageRequest);
-	Page<VersaoContrato> findFetchByModelosContratoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-	Page<VersaoContrato> findFetchByTextoInicial(Blob textoInicial, Pageable pageRequest);
-	Page<VersaoContrato> findFetchByTextoFinal(Blob textoFinal, Pageable pageRequest);
-	Page<VersaoContrato> findFetchByDataIniVigencia(Date dataIniVigencia, Pageable pageRequest);
-	Page<VersaoContrato> findFetchByDataFimVigencial(Date dataFimVigencial, Pageable pageRequest);
+	VersaoContratoEntity findFetchById(Long versaoModelo);
+	Page<VersaoContratoEntity> findFetchByModelosContrato(Long modelodeContrato, Pageable pageRequest);
+	Page<VersaoContratoEntity> findFetchByModelosContratoInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
+	Page<VersaoContratoEntity> findFetchByTextoInicial(Blob textoInicial, Pageable pageRequest);
+	Page<VersaoContratoEntity> findFetchByTextoFinal(Blob textoFinal, Pageable pageRequest);
+	Page<VersaoContratoEntity> findFetchByDataIniVigencia(Date dataIniVigencia, Pageable pageRequest);
+	Page<VersaoContratoEntity> findFetchByDataFimVigencial(Date dataFimVigencial, Pageable pageRequest);
 
 }

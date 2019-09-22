@@ -5,16 +5,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import domain.proposta.contrato.ClausulaEntity;
+import rest.dto.ClausulaDTO;
+
 import java.util.Date;
 
 @Repository
-public interface IClausulaRepository extends PagingAndSortingRepository<Clausula, Long> {
+public interface IClausulaRepository extends PagingAndSortingRepository<ClausulaEntity, Long> {
 
-	Clausula findFetchById(Long clausula);
+	ClausulaEntity findFetchById(Long clausula);
 
-	Page<Clausula> findFetchByDescricao(String descricao, Pageable pageRequest);
+	Page<ClausulaEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
 
-	Page<Clausula> findFetchByDataFinalDeVigencia(Date dataFinalDeVigencia, Pageable pageRequest);
+	Page<ClausulaEntity> findFetchByDataFinalDeVigencia(Date dataFinalDeVigencia, Pageable pageRequest);
 	
 	
 	

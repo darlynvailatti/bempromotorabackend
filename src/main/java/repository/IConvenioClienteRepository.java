@@ -6,17 +6,17 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
-
+import domain.cliente.ConvenioClienteEntity;
 @Repository
-public interface IConvenioClienteRepository extends PagingAndSortingRepository<ConvenioCliente, Long> {
+public interface IConvenioClienteRepository extends PagingAndSortingRepository<ConvenioClienteEntity, Long> {
 
-	ConvenioCliente findFetchById(Long idConvenio);
+	ConvenioClienteEntity findFetchById(Long idConvenio);
 
-	Page<ConvenioCliente> findFetchByMatricula(String matricula, Pageable pageRequest);
+	Page<ConvenioClienteEntity> findFetchByMatricula(String matricula, Pageable pageRequest);
 
-	Page<ConvenioCliente> findFetchByDataEntrada(Date dataEntrada, Pageable pageRequest);
+	Page<ConvenioClienteEntity> findFetchByDataEntrada(Date dataEntrada, Pageable pageRequest);
 
-	Page<ConvenioCliente> findFetchByDataFim(Date dataFim, Pageable pageRequest);
+	Page<ConvenioClienteEntity> findFetchByDataFim(Date dataFim, Pageable pageRequest);
 
 	
 	

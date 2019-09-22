@@ -1,26 +1,35 @@
-package repository;
 
+package repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
+import domain.parceiro.LocalidadeEntity;
 
 @Repository
-public interface ILocalidadeRepository extends PagingAndSortingRepository<Localidade, Long> {
+public interface ILocalidadeRepository extends PagingAndSortingRepository<LocalidadeEntity, Long> {
 
-	Localidade findFetchById(Long idLocalidade);
 
-	Page<Localidade> findFetchByDescricao(String descricao, Pageable pageRequest);
+	//@EntityGraph(attributePaths= {"informacaoBancaria"}, type = @EntityGraph.EntityGraphType.LOAD)
 	
-	Page<Localidade> findFetchByParceiro(Long idParceiro, Pageable pageRequest);
 
-	Page<Localidade> findFetchByParceiroInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
-
-	Page<Localidade> findFetchByResidencialouComercial(String residencialouComercial, Pageable pageRequest);
-
-	Page<Localidade> findFetchByInformacaoBancaria(Long idInformacaoBancaria, Pageable pageRequest);
-
-	Page<Localidade> findFetchByInformacaoBancariaInitialContaininigIgnoreCase(String initilas, Pageable pageRequest);
+	//@EntityGraph(attributePaths= {"parceiro"}, type = @EntityGraph.EntityGraphType.LOAD)
+	LocalidadeEntity findFetchById(Long idLocalidade);
+	
+	Page<LocalidadeEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
+	
+	
+	Page<LocalidadeEntity> findFetchByParceiro(Long idParceiro, Pageable pageRequest);
+	Page<LocalidadeEntity> findFetchByParceiroInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
+	
+	
+	
+	Page<LocalidadeEntity> findFetchByResidencialouComercial(String residencialouComercial, Pageable pageRequest);
+	
+	
+	Page<LocalidadeEntity> findFetchByInformacaoBancaria(Long idInformacaoBancaria, Pageable pageRequest);
+	Page<LocalidadeEntity> findFetchByInformacaoBancariaInitialContaininigIgnoreCase(String initials, Pageable pageRequest);
 	
 	
 	

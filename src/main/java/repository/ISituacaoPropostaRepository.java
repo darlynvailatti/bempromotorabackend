@@ -5,11 +5,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ISituacaoPropostaRepository extends PagingAndSortingRepository<SituacaoProposta, Long> {
+import domain.proposta.SituacaoPropostaEntity;
 
-	SituacaoProposta findFetchById(Long idSituacao);
+@Repository
+public interface ISituacaoPropostaRepository extends PagingAndSortingRepository<SituacaoPropostaEntity, Long> {
+
+	SituacaoPropostaEntity findFetchById(Long idSituacao);
 	
-	Page<SituacaoProposta> findFetchByDescricao(String descricao, Pageable pageRequest);
+	Page<SituacaoPropostaEntity> findFetchByDescricao(String descricao, Pageable pageRequest);
 
 }
