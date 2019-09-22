@@ -1,17 +1,19 @@
 package test.builder;
 
+import domain.cliente.ConvenioEntity;
+
 public class ConvenioBuilder {
 
-    public static Convenio SIAPE(){
-        Convenio convenio = new Convenio();
+    public static ConvenioEntity SIAPE(){
+        ConvenioEntity convenio = new ConvenioEntity();
         convenio.setDescricao("SIAPE");
-        convenio.setId(1L);
+        convenio.setIdConvenio(1L);
         return convenio;
     }
 
-    public static Convenio INSS(){
-        Convenio convenio = new Convenio();
-        convenio.setId(2L);
+    public static ConvenioEntity INSS(){
+        ConvenioEntity convenio = new ConvenioEntity();
+        convenio.setIdConvenio(2L);
         convenio.setDescricao("INSS");
         return convenio;
     }
