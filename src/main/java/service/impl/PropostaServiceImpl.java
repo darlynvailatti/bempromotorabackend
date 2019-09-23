@@ -4,6 +4,7 @@ import architecture.exception.BusinessLogicException;
 import architecture.util.EnsuresThat;
 import architecture.util.ExpectThat;
 import domain.proposta.PropostaEntity;
+import domain.proposta.SituacaoPropostaCreditoEnum;
 import domain.proposta.regra.ModeloRegraPropostaEntity;
 import domain.proposta.regra.RegraEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,6 @@ public class PropostaServiceImpl implements IPropostaService {
         ValidaRegrasSobrePropostaDTO valida = new ValidaRegrasSobrePropostaDTO(proposta, regrasDoModeloVigente);
         return processadorQueValidaRegrasSobreProposta.execute(valida);
     }
+    
 
 }
