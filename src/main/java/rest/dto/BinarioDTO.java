@@ -10,25 +10,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 
-/**
-* Bin�rios "Binario"
-*/
 public class BinarioDTO extends AbstractRestDTO{
-	/**
-	* Chave Conte�do (idConteudo) de Bin�rios
-	*/
 	private Long idConteudo;
-	
-	/** 
-	* HashBin�rio Diferencial (HashBinarioComDiferencial NOT NULL char(20))
-	*/
 	private String hashBinarioComDiferencial; 
-	
-	
-	/** 
-	* Binario (Binario NULL blob)
-	*/
-	 private byte[] binario;
+	private byte[] binario;
 	
 	
 	public Long getIdConteudo(){

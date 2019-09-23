@@ -12,30 +12,11 @@ import org.springframework.stereotype.Repository;
 import rest.dto.PermissaoDTO;
 import rest.dto.InformacaoDTO;
 
-/**
-* Logs "Log"
-*/
 public class LogDTO extends AbstractRestDTO{
-	/**
-	* Chave sequencial (idLog) de Logs
-	*/
+
 	private Long idLog;
-	
-	/**
-	* Permiss�o (Permissao.idPermissao NOT NULL) Permiss�o
-	*/
 	private PermissaoDTO permissao;
-	
-	
-	/** 
-	* Data Hora (DataHora NOT NULL date)
-	*/
-	 private LocalDate dataHora;
-	
-	
-	/** 
-	* Transa��o (CodigoDaTransacao NULL char(32))
-	*/
+	private LocalDate dataHora;
 	private String codigoDaTransacao; 
 	
 	

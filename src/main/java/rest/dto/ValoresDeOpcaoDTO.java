@@ -10,13 +10,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 
-/**
-* Valores de Op��o "ValoresDeOpcao"
-*/
 public class ValoresDeOpcaoDTO extends AbstractRestDTO{
-	/**
-	* Chave Conte�do (idConteudo) de Valores de Op��o
-	*/
 	private Long idConteudo;
 	
 	/** 

@@ -11,20 +11,12 @@ import org.springframework.stereotype.Repository;
 import rest.dto.EntidadeDTO;
 
 /**
-* Registros "Registro"
+* Registros das entidades sequencial único para todas as entitades
 */
 public class RegistroDTO extends AbstractRestDTO{
-	/**
-	* Chave Registro de Informa��o (RegistroDeInformacao) de Registros
-	*/
+
 	private Long registroDeInformacao;
-	
-	/**
-	* Entidade (Entidades.IdEntidade NOT NULL) Entidades
-	*/
 	private EntidadeDTO entidade;
-	
-	
 	public Long getRegistroDeInformacao(){
 		return this.registroDeInformacao;
 	}

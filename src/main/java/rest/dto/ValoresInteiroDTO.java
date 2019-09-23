@@ -10,18 +10,11 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 
-/**
-* Valores Inteiros "ValoresInteiro"
-*/
 public class ValoresInteiroDTO extends AbstractRestDTO{
-	/**
-	* Chave Conte�do (idConteudo) de Valores Inteiros
-	*/
 	private Long idConteudo;
 	
 	/** 
-	* Inteiro (ValorInteiro NOT NULL integer)
-	*/
+	* NOT NULL	*/
 	 private Integer valorInteiro;
 	
 	

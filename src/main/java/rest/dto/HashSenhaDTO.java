@@ -10,18 +10,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 
-/**
-* HashSenhas "HashSenha"
-*/
+
 public class HashSenhaDTO extends AbstractRestDTO{
-	/**
-	* Chave Conte�do (idConteudo) de HashSenhas
-	*/
 	private Long idConteudo;
-	
-	/** 
-	* HashSenhas (HashSenhas NOT NULL char(20))
-	*/
 	private String hashSenhas; 
 	
 	

@@ -13,30 +13,11 @@ import rest.dto.ValoresDeOpcaoDTO;
 import rest.dto.OpcaoDeCampoDTO;
 import rest.dto.CampoDeEntidadeDTO;
 
-/**
-* Alias "Alias"
-*/
+
 public class AliasDTO extends AbstractRestDTO{
-	/**
-	* Chave Alias (idAlias) de Alias
-	*/
 	private Long idAlias;
-	
-	/**
-	* Conte�do (ValoresDeOpcao.idConteudo NULL) Conte�dos
-	*/
 	private ValoresDeOpcaoDTO conteudo;
-	
-	
-	/**
-	* Op��o (OpcaoDeCampo.idOpcao NULL) Op��es de um Campo
-	*/
 	private OpcaoDeCampoDTO opcao;
-	
-	
-	/** 
-	* Nome resumido (NomeResumido NOT NULL char(30))
-	*/
 	private String nomeResumido; 
 	
 	

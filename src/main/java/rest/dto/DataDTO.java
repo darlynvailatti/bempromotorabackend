@@ -11,13 +11,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 
-/**
-* Data "Data"
-*/
 public class DataDTO extends AbstractRestDTO{
-	/**
-	* Chave Conte�do (idConteudo) de Data
-	*/
 	private Long idConteudo;
 	
 	/** 

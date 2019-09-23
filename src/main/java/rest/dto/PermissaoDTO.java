@@ -11,20 +11,12 @@ import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 import rest.dto.CampoDeEntidadeDTO;
 
-/**
-* Permiss�o "Permissao"
-*/
 public class PermissaoDTO extends AbstractRestDTO{
-	/**
-	* Chave Permiss�o (idPermissao) de Permiss�o
-	*/
 	private Long idPermissao;
-	
 	/**
 	* Usu�rio (Conteudos.idUsuario NOT NULL) Conte�dos
 	*/
 	private ConteudoDTO usuario;
-	
 	
 	public Long getIdPermissao(){
 		return this.idPermissao;

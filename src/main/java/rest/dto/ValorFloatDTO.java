@@ -10,19 +10,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 import rest.dto.ConteudoDTO;
 
-/**
-* Valor Float "ValorFloat"
-*/
+
 public class ValorFloatDTO extends AbstractRestDTO{
-	/**
-	* Chave Conte�do (idConteudo) de Valor Float
-	*/
 	private Long idConteudo;
-	
-	/** 
-	* Valor Float (ValorFloat NOT NULL decimal(20,6))
-	*/
-	 private BigDecimal valorFloat;
+	private BigDecimal valorFloat;
 	
 	
 	public Long getIdConteudo(){
