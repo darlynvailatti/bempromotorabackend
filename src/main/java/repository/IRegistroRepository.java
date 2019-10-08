@@ -1,11 +1,11 @@
 
 package repository;
+import domain.chavevalor.RegistroEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import domain.RegistroEntity;
 
 @Repository
 public interface IRegistroRepository extends PagingAndSortingRepository<RegistroEntity, Long> {

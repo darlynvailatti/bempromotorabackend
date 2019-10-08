@@ -2,12 +2,11 @@
 package repository;
 import java.time.LocalDate;
 
+import domain.chavevalor.DataEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import domain.DataEntity;
 
 @Repository
 public interface IDataRepository extends PagingAndSortingRepository<DataEntity, Long> {

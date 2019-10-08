@@ -1,6 +1,5 @@
 package domain.proposta.regra.validador;
 
-import architecture.exception.BusinessLogicException;
 import architecture.util.EnsuresThat;
 import domain.chavevalor.*;
 import domain.cliente.ClienteEntity;
@@ -11,7 +10,6 @@ import domain.proposta.regra.RegraEntity;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.List;
 
 public class ValidadorRegraCampoPropostaIdade implements IValidadorRegraProposta {
 

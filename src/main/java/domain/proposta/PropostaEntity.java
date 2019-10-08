@@ -3,7 +3,6 @@ package domain.proposta;
 
 import domain.UsuarioEntity;
 import domain.cliente.ConvenioClienteEntity;
-import domain.cliente.ConvenioEntity;
 import domain.proposta.contrato.ContratoEntity;
 import domain.proposta.regra.ModeloRegraPropostaEntity;
 
@@ -88,7 +87,7 @@ public class PropostaEntity extends architecture.AbstractEntity {
 	};
 
 	public void setSituacao(SituacaoPropostaCreditoEnum situacao){
-        	TrocarSituacaoDaProposta(situacao);
+        	trocarSituacaoDaProposta(situacao);
 	};
 	
 	public ContratoEntity getContrato(){
@@ -163,68 +162,7 @@ public class PropostaEntity extends architecture.AbstractEntity {
 		this.convenioCliente = convenioCliente;
 	}
 	
-    private void TrocarSituacaoDaProposta(SituacaoPropostaCreditoEnum novaSituacao){
-    	SituacaoPropostaCreditoEnum situacao = this.getSituacao();
-		if (situacao == null) {
-			situacao = SituacaoPropostaCreditoEnum.EM_EDICAO;
-		}
+    private void trocarSituacaoDaProposta(SituacaoPropostaCreditoEnum novaSituacao){
 
-		switch (situacao) {
-		case EM_EDICAO:
-			if (novaSituacao.equals(SituacaoPropostaCreditoEnum.ABERTA)) {
-				setSituacao(novaSituacao);
-			}
-		case ABERTA:
-			if ((novaSituacao.equals(SituacaoPropostaCreditoEnum.EM_EDICAO))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.PENDENTE_DE_ANALISE))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.SUBMETIDA_PARA_ANALISE))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.CANCELADA))) {
-				setSituacao(novaSituacao);
-			}
-			break;
-		case PENDENTE_DE_ANALISE:
-			if ((novaSituacao.equals(SituacaoPropostaCreditoEnum.ABERTA))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.SUBMETIDA_PARA_ANALISE))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.CANCELADA))) {
-				setSituacao(novaSituacao);
-			}
-
-			break;
-		case SUBMETIDA_PARA_ANALISE:
-			if ((novaSituacao.equals(SituacaoPropostaCreditoEnum.ABERTA))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.APROVADA))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.REPROVADA))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.CANCELADA))) {
-				setSituacao(novaSituacao);;
-			}
-
-			break;
-		case APROVADA:
-			if ((novaSituacao.equals(SituacaoPropostaCreditoEnum.ANALISE_NO_CONVENIO))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.CANCELADA))) {
-				setSituacao(novaSituacao);
-			}
-			break;
-		case ANALISE_NO_CONVENIO:
-			if ((novaSituacao.equals(SituacaoPropostaCreditoEnum.REPROVADA_NO_CONVENIO))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.PROCESSANDO_PAGAMENTO))
-					|| (novaSituacao.equals(SituacaoPropostaCreditoEnum.CANCELADA))) {
-				setSituacao(novaSituacao);
-			}
-			break;
-		case PROCESSANDO_PAGAMENTO:
-			if (novaSituacao.equals(SituacaoPropostaCreditoEnum.PAGAMENTO_EFETUADO)) {
-				setSituacao(novaSituacao);
-			}
-			break;
-		case REPROVADA:
-			break;
-		case CANCELADA:
-			break;
-		case REPROVADA_NO_CONVENIO:
-			break;
-		default:
-			break;
-		}
 	}
 }

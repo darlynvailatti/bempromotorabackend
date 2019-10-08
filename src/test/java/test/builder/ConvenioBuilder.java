@@ -4,6 +4,8 @@ import domain.cliente.ConvenioEntity;
 
 public class ConvenioBuilder {
 
+    private ConvenioBuilder(){}
+
     public static ConvenioEntity SIAPE(){
         ConvenioEntity convenio = new ConvenioEntity();
         convenio.setDescricao("SIAPE");
