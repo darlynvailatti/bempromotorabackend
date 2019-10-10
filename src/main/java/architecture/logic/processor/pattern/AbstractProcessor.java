@@ -29,7 +29,6 @@ public abstract class AbstractProcessor<Input extends AbstractProcessorDTO, Outp
     }
 
     protected void throwNewBusinessLogicException(Exception e) throws BusinessLogicException{
-        e.printStackTrace();
         String formatedMessage = MessageFormat.format("Error while execute {0}. From: {1}", getName(), e.getMessage());
         throw new BusinessLogicException(formatedMessage);
     }

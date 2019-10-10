@@ -1,5 +1,6 @@
 package service.processor;
 
+import architecture.exception.BusinessLogicException;
 import architecture.logic.processor.pattern.AbstractProcessor;
 import architecture.util.EnsuresThat;
 import domain.proposta.PropostaEntity;
@@ -11,7 +12,7 @@ import java.util.List;
 
 import static domain.proposta.SituacaoPropostaCreditoEnum.*;
 
-public class ProcessadorQueAlteraSituacaoDaProposta
+public class ProcessadorQueTrocaSituacaoDaProposta
         extends AbstractProcessor<TrocaSituacaoDaPropostaDTO, TrocaSituacaoDaPropostaDTO.Retorno> {
 
     private SituacaoPropostaCreditoEnum novaSituacao;
@@ -23,16 +24,21 @@ public class ProcessadorQueAlteraSituacaoDaProposta
         EnsuresThat.isNotNull(input, "{0} náo pode ser NULO", TrocaSituacaoDaPropostaDTO.class.getSimpleName());
         EnsuresThat.isNotNull(input.getNovaSituacao(), "Nova situação não foi definida");
         EnsuresThat.isNotNull(input.getProposta(), "Proposta não foi definida");
-        EnsuresThat.isNotNull(input.getProposta().getSituacao(), "Proposta {0} não possui situação definida");
+        EnsuresThat.isNotNull(input.getProposta().getSituacao(), "Proposta {0} não possui situação definida", input.getProposta());
     }
 
     @Override
-    protected void executionImplementation() throws Exception {
-        novaSituacao = input.getNovaSituacao();
-        atualSituacao = input.getProposta().getSituacao();
-        proposta = input.getProposta();
-        GerenciadorDeSituacaoDaProposta.garanteQuePodeMudarSituacaoDePara(atualSituacao, novaSituacao);
-        proposta.setSituacao(novaSituacao);
+    protected void executionImplementation() throws BusinessLogicException {
+
+    	try {
+    		novaSituacao = input.getNovaSituacao();
+    		atualSituacao = input.getProposta().getSituacao();
+    		proposta = input.getProposta();
+    		GerenciadorDeSituacaoDaProposta.garanteQuePodeMudarSituacaoDePara(atualSituacao, novaSituacao);
+    		proposta.setSituacao(novaSituacao);
+		} catch (Exception e) {
+			throw new BusinessLogicException(e);
+		}
     }
 
 
@@ -43,7 +49,7 @@ public class ProcessadorQueAlteraSituacaoDaProposta
 
     @Override
     protected String getName() {
-        return ProcessadorQueAlteraSituacaoDaProposta.class.getSimpleName();
+        return ProcessadorQueTrocaSituacaoDaProposta.class.getSimpleName();
     }
 
     private static class GerenciadorDeSituacaoDaProposta {
@@ -77,8 +83,10 @@ public class ProcessadorQueAlteraSituacaoDaProposta
                 case REPROVADA:
                     break;
                 case CANCELADA:
+                	EnsuresThat.isTrue(false, "Quando {0} então não pode trocar situação", CANCELADA);
                     break;
                 case REPROVADA_NO_CONVENIO:
+                	EnsuresThat.isTrue(false, "Quando {0} então não pode trocar situação", REPROVADA_NO_CONVENIO);
                     break;
                 default:
                     break;

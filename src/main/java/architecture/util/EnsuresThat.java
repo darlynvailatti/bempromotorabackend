@@ -9,7 +9,7 @@ public class EnsuresThat {
 
         if(ExpectThat.isNullAndEmpty(messageValidation)){
             String defaultMessageValidation = "is not a true expression";
-            throwNewCustomMessageValidationBussinesLogicException(messageValidation);
+            throwNewCustomMessageValidationBussinesLogicException(defaultMessageValidation);
             return;
         }
         throwNewCustomMessageValidationBussinesLogicException(messageValidation, objects);

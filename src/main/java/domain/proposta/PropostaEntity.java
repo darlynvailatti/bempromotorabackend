@@ -87,7 +87,7 @@ public class PropostaEntity extends architecture.AbstractEntity {
 	};
 
 	public void setSituacao(SituacaoPropostaCreditoEnum situacao){
-        	trocarSituacaoDaProposta(situacao);
+		this.situacao = situacao;
 	};
 	
 	public ContratoEntity getContrato(){
@@ -160,9 +160,5 @@ public class PropostaEntity extends architecture.AbstractEntity {
 
 	public void setConvenioCliente(ConvenioClienteEntity convenioCliente) {
 		this.convenioCliente = convenioCliente;
-	}
-	
-    private void trocarSituacaoDaProposta(SituacaoPropostaCreditoEnum novaSituacao){
-
 	}
 }
