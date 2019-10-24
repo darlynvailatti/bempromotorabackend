@@ -1,4 +1,5 @@
-/Users/darlyn/Desktop/BemPromotoraBackend/src/test/java/test/builder/ClienteBuilder.java
-/Users/darlyn/Desktop/BemPromotoraBackend/src/test/java/test/builder/ConvenioBuilder.java
-/Users/darlyn/Desktop/BemPromotoraBackend/src/test/java/test/TesteValidacaoRegrasSobPropostaDeCredito.java
-/Users/darlyn/Desktop/BemPromotoraBackend/src/test/java/test/TesteValidaSituacaoPropostaCreditoDTO.java
+/home/rinaldo/git/bempromotorabackend/src/test/java/test/builder/ClienteBuilder.java
+/home/rinaldo/git/bempromotorabackend/src/test/java/test/builder/ConvenioBuilder.java
+/home/rinaldo/git/bempromotorabackend/src/test/java/test/builder/PropostaBuilder.java
+/home/rinaldo/git/bempromotorabackend/src/test/java/test/TesteValidacaoSituacaoPropostaCredito.java
+/home/rinaldo/git/bempromotorabackend/src/test/java/test/TesteValidacaoRegrasSobPropostaDeCredito.java
