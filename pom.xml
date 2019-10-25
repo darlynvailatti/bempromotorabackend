@@ -78,12 +78,6 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
 		<!-- Swagger: API Documentation -->
 		<dependency>
 			<groupId>io.springfox</groupId>

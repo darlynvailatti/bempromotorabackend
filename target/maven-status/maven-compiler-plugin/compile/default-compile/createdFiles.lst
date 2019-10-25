@@ -70,8 +70,8 @@ repository/IPropostaArquivoRepository.class
 domain/chavevalor/EntidadeEntity.class
 repository/IContratoArquivoRepository.class
 domain/proposta/contrato/ContratoArquivoEntity.class
-domain/DocumentoArquivoEntity.class
 domain/chavevalor/TextoEntity.class
+domain/DocumentoArquivoEntity.class
 rest/dto/ParceiroDTO.class
 rest/dto/PermissaoDTO.class
 repository/IUsuarioRepository.class
@@ -105,8 +105,8 @@ domain/chavevalor/LogEntity.class
 architecture/transporte/pattern/DTO.class
 domain/parceiro/LocalidadeEntity.class
 rest/dto/RegistroDTO.class
-domain/proposta/regra/ModeloRegraPropostaEntity.class
 domain/proposta/regra/validador/IValidadorRegraProposta.class
+domain/proposta/regra/ModeloRegraPropostaEntity.class
 rest/dto/AliasDTO.class
 rest/dto/TextoContratoDTO.class
 rest/dto/ConvenioDTO.class
@@ -125,8 +125,8 @@ domain/proposta/contrato/ClausulaEntity.class
 rest/dto/DocumentoArquivoDTO.class
 repository/IPessoasFisicaRepository.class
 rest/dto/ConteudoCampoEntidadeDTO.class
-domain/proposta/SituacaoPropostaCreditoEnum.class
 domain/proposta/contrato/ModeloContratoEntity.class
+domain/proposta/SituacaoPropostaCreditoEnum.class
 rest/dto/ValoresInteiroDTO.class
 service/dto/TrocaSituacaoDaPropostaDTO.class
 domain/cliente/ClienteEntity.class
@@ -142,8 +142,8 @@ domain/cliente/SituacaoConvenioEnum.class
 rest/dto/EstruturaDeRegistroDTO.class
 domain/proposta/PropostaArquivoEntity.class
 domain/proposta/ContratoPropostaEntity.class
-domain/NotificacaoEntity.class
 domain/chavevalor/OpcaoCampoEntity.class
+domain/NotificacaoEntity.class
 repository/IRegraRepository.class
 domain/chavevalor/ConteudoEntity.class
 repository/IValoresDeOpcaoRepository.class
