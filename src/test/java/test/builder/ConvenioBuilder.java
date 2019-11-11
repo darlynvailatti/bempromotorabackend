@@ -1,6 +1,6 @@
 package test.builder;
 
-import domain.cliente.ConvenioEntity;
+import br.com.bempromotora.backend.domain.cliente.ConvenioEntity;
 
 public class ConvenioBuilder {
 

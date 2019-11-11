@@ -1,6 +1,6 @@
 package test.builder;
 
-import domain.proposta.PropostaEntity;
+import br.com.bempromotora.backend.domain.proposta.PropostaEntity;
 
 public class PropostaBuilder {
 	

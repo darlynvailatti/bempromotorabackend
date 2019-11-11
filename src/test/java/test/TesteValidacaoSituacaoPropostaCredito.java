@@ -1,7 +1,7 @@
 package test;
 
 
-import static domain.proposta.SituacaoPropostaCreditoEnum.*;
+import static br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum.*;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
@@ -12,11 +12,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import architecture.exception.BusinessLogicException;
-import domain.proposta.PropostaEntity;
-import domain.proposta.SituacaoPropostaCreditoEnum;
-import service.dto.TrocaSituacaoDaPropostaDTO;
-import service.processor.ProcessadorQueTrocaSituacaoDaProposta;
+import br.com.bempromotora.backend.architecture.exception.BusinessLogicException;
+import br.com.bempromotora.backend.domain.proposta.PropostaEntity;
+import br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum;
+import br.com.bempromotora.backend.service.dto.TrocaSituacaoDaPropostaDTO;
+import br.com.bempromotora.backend.service.processor.ProcessadorQueTrocaSituacaoDaProposta;
 import test.builder.PropostaBuilder;
 
 

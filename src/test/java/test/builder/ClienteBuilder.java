@@ -2,16 +2,16 @@ package test.builder;
 
 import java.time.LocalDate;
 
-import common.Data;
-import common.Periodo;
-import domain.cliente.ClienteEntity;
-import domain.cliente.ConvenioClienteEntity;
-import domain.cliente.ConvenioEntity;
-import domain.parceiro.PessoasFisicaEntity;
-import domain.parceiro.ParceiroEntity;
-import domain.cliente.SituacaoConvenioEnum;
-import domain.parceiro.LocalidadeEntity;
-import domain.parceiro.LogradouroEntity;
+import br.com.bempromotora.backend.common.Data;
+import br.com.bempromotora.backend.common.Periodo;
+import br.com.bempromotora.backend.domain.cliente.ClienteEntity;
+import br.com.bempromotora.backend.domain.cliente.ConvenioClienteEntity;
+import br.com.bempromotora.backend.domain.cliente.ConvenioEntity;
+import br.com.bempromotora.backend.domain.parceiro.PessoasFisicaEntity;
+import br.com.bempromotora.backend.domain.parceiro.ParceiroEntity;
+import br.com.bempromotora.backend.domain.cliente.SituacaoConvenioEnum;
+import br.com.bempromotora.backend.domain.parceiro.LocalidadeEntity;
+import br.com.bempromotora.backend.domain.parceiro.LogradouroEntity;
 public class ClienteBuilder {
 
     private ClienteBuilder(){}
@@ -19,9 +19,9 @@ public class ClienteBuilder {
     public static ClienteEntity clienteComLocalidade(){
         ParceiroEntity parceiro=new ParceiroEntity();
         PessoasFisicaEntity pessoafisica=new PessoasFisicaEntity();
-        parceiro.setIdParceiro(1l);
+        parceiro.setId(1l);
         pessoafisica.setParceiro(parceiro);
-        pessoafisica.setCPF("08557752971");
+        pessoafisica.setCpf("08557752971");
         
     	ClienteEntity padrao = new ClienteEntity();
         padrao.setCliente(pessoafisica)
@@ -54,7 +54,14 @@ public class ClienteBuilder {
         Data umDoQuatroDeDezenove = Data.em(1, 4, 2019);
         Data trintaEUmDoDozeDeDezenove = Data.em(31, 12, 2019);
         Periodo vigencia = Periodo.de(umDoQuatroDeDezenove, trintaEUmDoDozeDeDezenove);
-        ConvenioClienteEntity convenioCliente = new ConvenioClienteEntity(inss, cliente, vigencia);
+
+        ConvenioClienteEntity convenioCliente = ConvenioClienteEntity.builder()
+                .convenio(inss)
+                .cliente(cliente)
+                .dataEntrada(vigencia.getInicio())
+                .dataFim(vigencia.getFim())
+                .build();
+
         return cliente;
     }
 
