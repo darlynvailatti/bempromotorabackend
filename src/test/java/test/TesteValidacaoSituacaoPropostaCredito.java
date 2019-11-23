@@ -161,7 +161,10 @@ public class TesteValidacaoSituacaoPropostaCredito {
     		PropostaEntity proposta = PropostaBuilder.padrao();
     		proposta.setSituacao(situacaoDeTeste);
     		assertThrows(BusinessLogicException.class, () -> {
-    	        TrocaSituacaoDaPropostaDTO troca = new TrocaSituacaoDaPropostaDTO(proposta, situacaoInvalida);
+				TrocaSituacaoDaPropostaDTO troca = TrocaSituacaoDaPropostaDTO.builder()
+						.proposta(proposta)
+						.novaSituacao(situacaoInvalida)
+						.build();
     	        processadorQueAlteraSituacaoDaProposta.execute(troca);
         	});
     	});
@@ -172,7 +175,10 @@ public class TesteValidacaoSituacaoPropostaCredito {
     		String mensagemErro = MessageFormat.format(MENSAGEM_PADRAO_DE_ERRO_TROCA_SITUACAO, situacaoDeTeste, situacaoValida);
     		PropostaEntity proposta = PropostaBuilder.padrao();
     		proposta.setSituacao(situacaoDeTeste);
-	        TrocaSituacaoDaPropostaDTO troca = new TrocaSituacaoDaPropostaDTO(proposta, situacaoValida);
+			TrocaSituacaoDaPropostaDTO troca = TrocaSituacaoDaPropostaDTO.builder()
+					.proposta(proposta)
+					.novaSituacao(situacaoDeTeste)
+					.build();
 	        try {
 				processadorQueAlteraSituacaoDaProposta.execute(troca);
 			} catch (BusinessLogicException e) {

@@ -7,9 +7,11 @@ import br.com.bempromotora.backend.domain.proposta.regra.RegraEntity;
 import br.com.bempromotora.backend.domain.proposta.regra.validador.IValidadorRegraProposta;
 import br.com.bempromotora.backend.domain.proposta.regra.validador.ValidadorRegraCampoPropostaIdade;
 import br.com.bempromotora.backend.service.dto.ValidaRegrasSobrePropostaDTO;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class ProcessadorQueValidaRegrasSobreProposta
         extends AbstractProcessor<ValidaRegrasSobrePropostaDTO, ValidaRegrasSobrePropostaDTO.RetornoDTO> {
 

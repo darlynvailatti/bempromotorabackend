@@ -6,12 +6,14 @@ import br.com.bempromotora.backend.architecture.util.EnsuresThat;
 import br.com.bempromotora.backend.domain.proposta.PropostaEntity;
 import br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum;
 import br.com.bempromotora.backend.service.dto.TrocaSituacaoDaPropostaDTO;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum.*;
 
+@Component
 public class ProcessadorQueTrocaSituacaoDaProposta
         extends AbstractProcessor<TrocaSituacaoDaPropostaDTO, TrocaSituacaoDaPropostaDTO.Retorno> {
 
@@ -44,7 +46,7 @@ public class ProcessadorQueTrocaSituacaoDaProposta
 
     @Override
     protected TrocaSituacaoDaPropostaDTO.Retorno executionReturn() throws Exception {
-        return new TrocaSituacaoDaPropostaDTO.Retorno(proposta);
+        return TrocaSituacaoDaPropostaDTO.Retorno.builder().propostaComNovaSituacao(proposta).build();
     }
 
     @Override
