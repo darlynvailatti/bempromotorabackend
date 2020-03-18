@@ -36,6 +36,7 @@ public class PropostaEntityToDTOConverter implements RestConverter<PropostaEntit
         propostaDTO.setConvenio(convenioDTO.getDescricao());
 
         propostaDTO.setData(propostaEntity.getData());
+        propostaDTO.setValor(propostaEntity.getValor());
         propostaDTO.setIdProposta(propostaEntity.getIdProposta());
         propostaDTO.setMatriculaConvenio(convenioClienteEntity.getMatricula());
         propostaDTO.setObservacao(propostaEntity.getObservacao());
