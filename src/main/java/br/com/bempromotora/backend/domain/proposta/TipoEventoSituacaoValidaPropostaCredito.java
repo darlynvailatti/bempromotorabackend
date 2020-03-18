@@ -16,7 +16,7 @@ public class TipoEventoSituacaoValidaPropostaCredito extends AbstractEntity {
     private Long id;
 
     @Enumerated(EnumType.ORDINAL)
-    private SituacaoPropostaCreditoEnum situacao;
+    private SituacaoPropostaEnum situacao;
 
     @Override
     public Long getId() {
@@ -27,11 +27,11 @@ public class TipoEventoSituacaoValidaPropostaCredito extends AbstractEntity {
         this.id = id;
     }
 
-    public SituacaoPropostaCreditoEnum getSituacao() {
+    public SituacaoPropostaEnum getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(SituacaoPropostaCreditoEnum situacao) {
+    public void setSituacao(SituacaoPropostaEnum situacao) {
         this.situacao = situacao;
     }
 }

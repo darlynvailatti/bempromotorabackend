@@ -42,11 +42,7 @@ public class ParceiroEntity extends br.com.bempromotora.backend.architecture.Abs
 	private PessoasFisicaEntity parceiroPessoasFisica;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="parceiroNotificado", cascade=CascadeType.ALL)
-	private List<NotificacaoEntity> parceiroNotificadoNotificacao;
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="parceiroNotificador", cascade=CascadeType.ALL)
-	private List<NotificacaoEntity> parceiroNotificadorNotificacao;
-	
+	private List<NotificacaoEntity> parceiroNotificado;
     	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="parceiro", cascade=CascadeType.ALL)
 	private List<DocumentoParceiroEntity> parceiroDocumento;

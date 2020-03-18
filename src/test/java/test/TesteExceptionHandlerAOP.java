@@ -3,8 +3,8 @@ package test;
 import br.com.bempromotora.backend.BemPromotoraBackendApplication;
 import br.com.bempromotora.backend.architecture.exception.BusinessLogicException;
 import br.com.bempromotora.backend.domain.proposta.PropostaEntity;
-import br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum;
-import br.com.bempromotora.backend.service.dto.TrocaSituacaoDaPropostaDTO;
+import br.com.bempromotora.backend.domain.proposta.SituacaoPropostaEnum;
+import br.com.bempromotora.backend.service.dto.TrocaSituacaoDaProposta;
 import br.com.bempromotora.backend.service.processor.ProcessadorQueTrocaSituacaoDaProposta;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -22,22 +22,24 @@ public class TesteExceptionHandlerAOP {
     private ProcessadorQueTrocaSituacaoDaProposta processadorQueTrocaSituacaoDaProposta;
 
     @Test
-    public void erroAoTrocarSituacaoDaProposta() throws BusinessLogicException {
+    public void erroAoTrocarSituacaoDaProposta() throws BusinessLogicException, InterruptedException {
 
-        Integer tentativas = 100;
+        Integer tentativas = 10;
 
         while(tentativas > 0) {
             log.info("Simulando tentativa {}", tentativas);
             try {
                 PropostaEntity propostaEntity = new PropostaEntity();
-                propostaEntity.setSituacao(SituacaoPropostaCreditoEnum.PAGAMENTO_EFETUADO);
-                TrocaSituacaoDaPropostaDTO trocaSituacaoDTO = TrocaSituacaoDaPropostaDTO.builder()
-                        .novaSituacao(SituacaoPropostaCreditoEnum.CANCELADA)
+                propostaEntity.setSituacao(SituacaoPropostaEnum.PAGAMENTO_EFETUADO);
+                TrocaSituacaoDaProposta trocaSituacaoDTO = TrocaSituacaoDaProposta.builder()
+                        .novaSituacao(SituacaoPropostaEnum.CANCELADA)
                         .proposta(propostaEntity)
                         .build();
                 processadorQueTrocaSituacaoDaProposta.execute(trocaSituacaoDTO);
-            }catch (BusinessLogicException e){
 
+            }catch (BusinessLogicException e){
+                log.error("Erro na tentativa {}: {}", tentativas, e.getMessage());
+                Thread.sleep(10000l);
             }
             tentativas--;
         }

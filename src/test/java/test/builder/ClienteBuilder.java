@@ -24,7 +24,7 @@ public class ClienteBuilder {
         pessoafisica.setCpf("08557752971");
         
     	ClienteEntity padrao = new ClienteEntity();
-        padrao.setCliente(pessoafisica)
+        padrao.setPessoaFisica(pessoafisica)
         ;
         padrao.setNome("Gandalf");
         padrao.setDataNascimento(LocalDate.of(2037, 10, 12));
@@ -55,13 +55,11 @@ public class ClienteBuilder {
         Data trintaEUmDoDozeDeDezenove = Data.em(31, 12, 2019);
         Periodo vigencia = Periodo.de(umDoQuatroDeDezenove, trintaEUmDoDozeDeDezenove);
 
-        ConvenioClienteEntity convenioCliente = ConvenioClienteEntity.builder()
-                .convenio(inss)
-                .cliente(cliente)
-                .dataEntrada(vigencia.getInicio())
-                .dataFim(vigencia.getFim())
-                .build();
-
+        ConvenioClienteEntity convenioCliente = new ConvenioClienteEntity();
+        convenioCliente.setConvenio(inss);
+        convenioCliente.setCliente(cliente);
+        convenioCliente.setDataEntrada(vigencia.getInicio().getConteudo().toLocalDate());
+        convenioCliente.setDataFim(vigencia.getFim().getConteudo().toLocalDate());
         return cliente;
     }
 

@@ -35,7 +35,7 @@ public class EvolucaoPropostaEntity extends br.com.bempromotora.backend.architec
 
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "idSituacao")
-	private SituacaoPropostaCreditoEnum situacao;
+	private SituacaoPropostaEnum situacao;
 
 	@Column(name = "DataHora")
 	private LocalDate dataHora;

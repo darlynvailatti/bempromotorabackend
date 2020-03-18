@@ -6,14 +6,14 @@ import br.com.bempromotora.backend.domain.proposta.PropostaEntity;
 import br.com.bempromotora.backend.domain.proposta.regra.RegraEntity;
 import br.com.bempromotora.backend.domain.proposta.regra.validador.IValidadorRegraProposta;
 import br.com.bempromotora.backend.domain.proposta.regra.validador.ValidadorRegraCampoPropostaIdade;
-import br.com.bempromotora.backend.service.dto.ValidaRegrasSobrePropostaDTO;
+import br.com.bempromotora.backend.service.dto.ValidaRegrasSobreProposta;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 @Component
 public class ProcessadorQueValidaRegrasSobreProposta
-        extends AbstractProcessor<ValidaRegrasSobrePropostaDTO, ValidaRegrasSobrePropostaDTO.RetornoDTO> {
+        extends AbstractProcessor<ValidaRegrasSobreProposta, ValidaRegrasSobreProposta.RetornoDTO> {
 
     private ValidadorRegraCampoPropostaIdade validadorRegraCampoIdade;
 
@@ -69,8 +69,8 @@ public class ProcessadorQueValidaRegrasSobreProposta
     }
 
     @Override
-    protected ValidaRegrasSobrePropostaDTO.RetornoDTO executionReturn() throws Exception {
-        return new ValidaRegrasSobrePropostaDTO.RetornoDTO(proposta, regras, resultadosDaValidacao);
+    protected ValidaRegrasSobreProposta.RetornoDTO executionReturn() throws Exception {
+        return new ValidaRegrasSobreProposta.RetornoDTO(proposta, regras, resultadosDaValidacao);
     }
 
     @Override

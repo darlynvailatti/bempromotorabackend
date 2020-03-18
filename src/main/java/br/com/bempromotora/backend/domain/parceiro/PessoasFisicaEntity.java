@@ -26,18 +26,9 @@ public class PessoasFisicaEntity extends br.com.bempromotora.backend.architectur
 	@Column(name = "CPF")
 	private String cpf;
 	
-	@Column(name = "Funcionrio")
-	private String funcionrio;
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idFuncionarioDeRepresentante")
 	private PessoaJuridicaEntity funcionarioDeRepresentante;
-
-	@OneToOne(fetch = FetchType.LAZY)
-	private UsuarioEntity usuario;
-    	
-	@OneToOne(fetch = FetchType.LAZY)
-	private ClienteEntity clienteCliente;
 
 	@Override
 	public Long getId(){

@@ -1,7 +1,6 @@
 
 package br.com.bempromotora.backend.domain.proposta;
 
-import br.com.bempromotora.backend.domain.cliente.ClienteEntity;
 import br.com.bempromotora.backend.domain.common.UsuarioEntity;
 import br.com.bempromotora.backend.domain.cliente.ConvenioClienteEntity;
 import br.com.bempromotora.backend.domain.proposta.contrato.ContratoEntity;
@@ -12,6 +11,7 @@ import java.time.LocalDate;
 import java.math.BigDecimal;
 import javax.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 
@@ -27,15 +27,11 @@ public class PropostaEntity extends br.com.bempromotora.backend.architecture.Abs
 	private Long idProposta;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	private ClienteEntity cliente;
-
-	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idModelodeRegra")
 	private ModeloRegraPropostaEntity modelodeRegra;
 
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "idSituacao")
-	private SituacaoPropostaCreditoEnum situacao;
+	private SituacaoPropostaEnum situacao;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idConvenioCliente")
@@ -49,7 +45,7 @@ public class PropostaEntity extends br.com.bempromotora.backend.architecture.Abs
 	private BigDecimal valor;
 
 	@Column(name = "Data")
-	private LocalDate data;
+	private LocalDateTime data;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUsuario")

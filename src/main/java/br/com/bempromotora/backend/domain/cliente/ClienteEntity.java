@@ -25,7 +25,7 @@ public class ClienteEntity extends br.com.bempromotora.backend.architecture.Abst
 	private Long id;
 
 	@OneToOne
-	private PessoasFisicaEntity cliente;
+	private PessoasFisicaEntity pessoaFisica;
 
 	@Column(name = "Nome")
 	private String nome;
@@ -34,14 +34,7 @@ public class ClienteEntity extends br.com.bempromotora.backend.architecture.Abst
 	private LocalDate dataNascimento;
 	
 	@Column(name = "Bloqueado")
-	private String bloqueado;
-	
-	@OneToOne(fetch = FetchType.LAZY,mappedBy="cliente", cascade=CascadeType.ALL)
-	private ConvenioClienteEntity clienteConveniosDoCliente;
-	
-    	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="cliente", cascade=CascadeType.ALL)
-	private List<PropostaEntity> clienteProposta;
+	private Boolean bloqueado;
 
 	@Override
 	public Long getId(){

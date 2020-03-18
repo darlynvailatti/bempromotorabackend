@@ -4,26 +4,26 @@ import br.com.bempromotora.backend.architecture.exception.BusinessLogicException
 import br.com.bempromotora.backend.architecture.logic.processor.pattern.AbstractProcessor;
 import br.com.bempromotora.backend.architecture.util.EnsuresThat;
 import br.com.bempromotora.backend.domain.proposta.PropostaEntity;
-import br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum;
-import br.com.bempromotora.backend.service.dto.TrocaSituacaoDaPropostaDTO;
+import br.com.bempromotora.backend.domain.proposta.SituacaoPropostaEnum;
+import br.com.bempromotora.backend.service.dto.TrocaSituacaoDaProposta;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static br.com.bempromotora.backend.domain.proposta.SituacaoPropostaCreditoEnum.*;
+import static br.com.bempromotora.backend.domain.proposta.SituacaoPropostaEnum.*;
 
 @Component
 public class ProcessadorQueTrocaSituacaoDaProposta
-        extends AbstractProcessor<TrocaSituacaoDaPropostaDTO, TrocaSituacaoDaPropostaDTO.Retorno> {
+        extends AbstractProcessor<TrocaSituacaoDaProposta, TrocaSituacaoDaProposta.Retorno> {
 
-    private SituacaoPropostaCreditoEnum novaSituacao;
-    private SituacaoPropostaCreditoEnum atualSituacao;
+    private SituacaoPropostaEnum novaSituacao;
+    private SituacaoPropostaEnum atualSituacao;
     private PropostaEntity proposta;
 
     @Override
     protected void validateInput() throws Exception {
-        EnsuresThat.isNotNull(input, "{0} náo pode ser NULO", TrocaSituacaoDaPropostaDTO.class.getSimpleName());
+        EnsuresThat.isNotNull(input, "{0} náo pode ser NULO", TrocaSituacaoDaProposta.class.getSimpleName());
         EnsuresThat.isNotNull(input.getNovaSituacao(), "Nova situação não foi definida");
         EnsuresThat.isNotNull(input.getProposta(), "Proposta não foi definida");
         EnsuresThat.isNotNull(input.getProposta().getSituacao(), "Proposta {0} não possui situação definida", input.getProposta());
@@ -45,8 +45,8 @@ public class ProcessadorQueTrocaSituacaoDaProposta
 
 
     @Override
-    protected TrocaSituacaoDaPropostaDTO.Retorno executionReturn() throws Exception {
-        return TrocaSituacaoDaPropostaDTO.Retorno.builder().propostaComNovaSituacao(proposta).build();
+    protected TrocaSituacaoDaProposta.Retorno executionReturn() throws Exception {
+        return TrocaSituacaoDaProposta.Retorno.builder().propostaComNovaSituacao(proposta).build();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class ProcessadorQueTrocaSituacaoDaProposta
     private static class GerenciadorDeSituacaoDaProposta {
 
 
-        public static void garanteQuePodeMudarSituacaoDePara(SituacaoPropostaCreditoEnum atual, SituacaoPropostaCreditoEnum nova) throws Exception {
+        public static void garanteQuePodeMudarSituacaoDePara(SituacaoPropostaEnum atual, SituacaoPropostaEnum nova) throws Exception {
 
             Boolean ehUmaSituacaoValida = Boolean.FALSE;
             switch (atual) {
@@ -97,31 +97,31 @@ public class ProcessadorQueTrocaSituacaoDaProposta
         }
 
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoEmEdicao(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoEmEdicao(){
             return Arrays.asList(ABERTA);
         }
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoAberta(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoAberta(){
             return Arrays.asList(EM_EDICAO, PENDENTE_DE_ANALISE, SUBMETIDA_PARA_ANALISE, CANCELADA);
         }
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoAprovada(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoAprovada(){
             return Arrays.asList(ANALISE_NO_CONVENIO, CANCELADA);
         }
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoPendenteDeAnalise(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoPendenteDeAnalise(){
             return Arrays.asList(ABERTA, SUBMETIDA_PARA_ANALISE, CANCELADA);
         }
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoSubmetidaParaAnalise(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoSubmetidaParaAnalise(){
             return Arrays.asList(ABERTA, APROVADA, REPROVADA, CANCELADA);
         }
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoAnaliseNoConvenio(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoAnaliseNoConvenio(){
             return Arrays.asList(REPROVADA_NO_CONVENIO, PROCESSANDO_PAGAMENTO, CANCELADA);
         }
 
-        private static List<SituacaoPropostaCreditoEnum> novasSituacoesValidasQuandoProcessandoPagamento(){
+        private static List<SituacaoPropostaEnum> novasSituacoesValidasQuandoProcessandoPagamento(){
             return Arrays.asList(PAGAMENTO_EFETUADO);
         }
     }
