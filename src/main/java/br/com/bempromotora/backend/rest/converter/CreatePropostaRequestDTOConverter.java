@@ -30,12 +30,7 @@ public class CreatePropostaRequestDTOConverter implements RestConverter<CreatePr
 
         ClienteDTO clienteDTO = createPropostaRequestDTO.getCliente();
         ClienteEntity clienteEntity = clienteDTOConverter.convert(clienteDTO);
-
-        ConvenioDTO convenioDTO = createPropostaRequestDTO.getConvenio();
-        ConvenioEntity convenioEntity = convenioDTOToEntityConverter.convert(convenioDTO);
-
         createPropostaRequest.setCliente(clienteEntity);
-        createPropostaRequest.setConvenio(convenioEntity);
 
         return createPropostaRequest;
     }

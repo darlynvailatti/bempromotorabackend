@@ -13,9 +13,6 @@ import java.math.BigDecimal;
 public class CreatePropostaRequest extends AbstractProcessorDTO {
 
     @NotNull
-    private ConvenioEntity convenio;
-
-    @NotNull
     private ClienteEntity cliente;
 
     @NotNull

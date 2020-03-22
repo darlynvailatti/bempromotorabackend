@@ -16,8 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
-
 @Slf4j
 @Component
 public class ProcessadorQueCriaProposta extends AbstractProcessor<CreatePropostaRequest, CreatePropostaResponse> {
@@ -33,7 +31,6 @@ public class ProcessadorQueCriaProposta extends AbstractProcessor<CreateProposta
     @Override
     protected void validateInput() throws Exception {
         EnsuresThat.isNotNull(input.getCliente(), "Cliente é obrigatório");
-        EnsuresThat.isNotNull(input.getConvenio(), "Convenio é obrigatório");
         EnsuresThat.isNotNull(input.getValor(), "Valor é obrigatório");
     }
 
@@ -45,11 +42,10 @@ public class ProcessadorQueCriaProposta extends AbstractProcessor<CreateProposta
         propostaEntity.setObservacao(input.getObservacao());
         propostaEntity.setValor(input.getValor());
 
-        ConvenioEntity convenio = input.getConvenio();
         ClienteEntity cliente = input.getCliente();
 
-        ConvenioClienteEntity convenioDoCliente = convenioClienteRepository.findByConvenioAndCliente(convenio, cliente);
-        EnsuresThat.isNotNull(convenioDoCliente, "O cliente {0} não possui convênio {1}", cliente, convenio);
+        ConvenioClienteEntity convenioDoCliente = convenioClienteRepository.findByCliente(cliente);
+        EnsuresThat.isNotNull(convenioDoCliente, "O cliente {0} não possui convênio", cliente);
 
         propostaEntity.setConvenioCliente(convenioDoCliente);
         propostaEntity = propostaRepository.save(propostaEntity);
