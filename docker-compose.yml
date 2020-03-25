@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  java-backend:
+    image: maven
+    volumes:
+      - "./bempromotorabackend:/deploy"
+    working_dir: "/deploy"
+    ports:
+      - "8080:8080"
+    command: bash -c "mvn clean && mvn install -DskipTests && java -jar target/br.com.bempromotora.backend-1.0-SNAPSHOT.jar"
+    container_name: BackEndBemPromotora
